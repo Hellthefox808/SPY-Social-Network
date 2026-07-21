@@ -19,7 +19,6 @@ import {
   ExternalLink,
 } from "lucide-react";
 import { motion } from "framer-motion";
-import { UnderwaterCanvas } from "@/components/ui";
 
 export default function Home() {
   const [urlInput, setUrlInput] = useState("");
@@ -73,9 +72,10 @@ export default function Home() {
   ];
 
   return (
-    <div className="flex-1 flex flex-col items-center justify-center relative overflow-hidden py-12 px-4 sm:px-6 min-h-[calc(100vh-4rem)]">
-      <UnderwaterCanvas />
-      <div className="absolute inset-0 bg-slate-950/60 backdrop-blur-[1px] pointer-events-none z-0" />
+    <div className="flex-1 flex flex-col items-center justify-center relative overflow-hidden py-12 px-4 sm:px-6 min-h-[calc(100vh-4rem)] bg-slate-950">
+      {/* Sleek Ambient Radial Glow Background */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-blue-600/15 rounded-full blur-[120px] pointer-events-none z-0" />
+      <div className="absolute bottom-1/3 right-1/4 w-[400px] h-[250px] bg-indigo-600/10 rounded-full blur-[100px] pointer-events-none z-0" />
 
       {/* Hero Section */}
       <motion.div
