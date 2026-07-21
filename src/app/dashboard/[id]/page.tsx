@@ -18,8 +18,10 @@ import EvidenceTab from "@/components/dashboard/EvidenceTab";
 import RawDataTab from "@/components/dashboard/RawDataTab";
 import MapTab from "@/components/dashboard/MapTab";
 import NetworkTab from "@/components/dashboard/NetworkTab";
+import KnowledgeGraphTab from "@/components/dashboard/KnowledgeGraphTab";
 import DetailsDrawer from "@/components/dashboard/DetailsDrawer";
 import { VideoBackground } from "@/components/ui";
+import { Share2 } from "lucide-react";
 
 import { NodeDetailData } from "@/components/dashboard/DetailsDrawer";
 import { AnalysisJobData, JobLocation, JobEntity, JobEdge } from "@/types/osint";
@@ -296,6 +298,7 @@ export default function DashboardPage() {
         <div className="flex items-center gap-2 border-b border-slate-900 pb-1 overflow-x-auto">
           {[
             { id: "overview", label: "Overview", icon: TrendingUp },
+            { id: "kg", label: "Knowledge Graph Matrix", icon: Share2 },
             { id: "network", label: "Network Graph", icon: GraphIcon },
             { id: "map", label: "Geointelligence Map", icon: MapPin },
             { id: "evidence", label: "Evidence Logs", icon: ListTodo },
@@ -324,6 +327,14 @@ export default function DashboardPage() {
               profile={profile}
               filteredConnections={filteredConnections}
               filteredLocations={filteredLocations}
+            />
+          )}
+
+          {activeTab === "kg" && (
+            <KnowledgeGraphTab
+              profile={profile}
+              edges={filteredConnections}
+              locations={filteredLocations}
             />
           )}
 
