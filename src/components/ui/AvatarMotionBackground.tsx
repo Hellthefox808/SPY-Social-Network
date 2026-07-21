@@ -43,48 +43,48 @@ export default function AvatarMotionBackground() {
     const handleMouseMove = (e: MouseEvent) => {
       mouseX = e.clientX;
       mouseY = e.clientY;
+      // Normalize X mouse movement across full screen width (0 to 1)
       targetProgress = Math.max(0, Math.min(1, e.clientX / window.innerWidth));
       isMouseActive = true;
 
       clearTimeout(mouseTimeout);
       mouseTimeout = setTimeout(() => {
         isMouseActive = false;
-      }, 1500);
+      }, 2000);
     };
     window.addEventListener("mousemove", handleMouseMove);
 
     // Initialize Tech Nodes for Cyber Grid Overlay
-    const nodeCount = Math.floor(Math.min(width, height) / 20);
+    const nodeCount = Math.floor(Math.min(width, height) / 18);
     const nodes: NodeParticle[] = Array.from({ length: nodeCount }, () => ({
       x: Math.random() * width,
       y: Math.random() * height,
-      vx: (Math.random() - 0.5) * 0.6,
-      vy: (Math.random() - 0.5) * 0.6,
+      vx: (Math.random() - 0.5) * 0.8,
+      vy: (Math.random() - 0.5) * 0.8,
       radius: 1.5 + Math.random() * 2,
     }));
 
     // Video play setup
     video.muted = true;
     video.loop = true;
+    video.playsInline = true;
     video.play().catch(() => {});
 
     // Render RAF Loop
     const render = () => {
       ctx.clearRect(0, 0, width, height);
 
-      // 1. Smooth RAF Video Time Scrubbing based on mouse position
+      // 1. Smooth RAF Video Time Scrubbing matching avatar head motion to mouse X position
       if (video.duration && !isNaN(video.duration)) {
-        if (isMouseActive) {
-          currentProgress += (targetProgress - currentProgress) * 0.08;
-          const targetTime = currentProgress * video.duration;
-          if (Math.abs(video.currentTime - targetTime) > 0.02) {
-            video.currentTime = targetTime;
-          }
+        currentProgress += (targetProgress - currentProgress) * 0.12; // Increased responsiveness
+        const targetTime = currentProgress * video.duration;
+        if (Math.abs(video.currentTime - targetTime) > 0.01) {
+          video.currentTime = targetTime;
         }
       }
 
       // 2. Render Tech Grid Background Lines
-      ctx.strokeStyle = "rgba(59, 130, 246, 0.07)";
+      ctx.strokeStyle = "rgba(59, 130, 246, 0.08)";
       ctx.lineWidth = 1;
       const gridSize = 45;
       for (let x = 0; x < width; x += gridSize) {
@@ -100,15 +100,28 @@ export default function AvatarMotionBackground() {
         ctx.stroke();
       }
 
-      // 3. Render Cyber Cursor Glow Spotlight
-      const cursorGlow = ctx.createRadialGradient(mouseX, mouseY, 0, mouseX, mouseY, 350);
-      cursorGlow.addColorStop(0, "rgba(59, 130, 246, 0.15)");
-      cursorGlow.addColorStop(0.5, "rgba(139, 92, 246, 0.05)");
+      // 3. Render Cyber Cursor Glow Spotlight following mouse
+      const cursorGlow = ctx.createRadialGradient(mouseX, mouseY, 0, mouseX, mouseY, 380);
+      cursorGlow.addColorStop(0, "rgba(59, 130, 246, 0.22)");
+      cursorGlow.addColorStop(0.4, "rgba(139, 92, 246, 0.08)");
       cursorGlow.addColorStop(1, "rgba(0, 0, 0, 0)");
       ctx.fillStyle = cursorGlow;
       ctx.fillRect(0, 0, width, height);
 
-      // 4. Render Interactive Tech Nodes & Network Connections
+      // 4. Render Head Tracking Cybernetic Target Reticle
+      ctx.save();
+      ctx.strokeStyle = "rgba(96, 165, 250, 0.35)";
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.arc(mouseX, mouseY, 16, 0, Math.PI * 2);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.arc(mouseX, mouseY, 4, 0, Math.PI * 2);
+      ctx.fillStyle = "rgba(96, 165, 250, 0.6)";
+      ctx.fill();
+      ctx.restore();
+
+      // 5. Render Interactive Tech Nodes & Network Connections
       nodes.forEach((node, i) => {
         node.x += node.vx;
         node.y += node.vy;
@@ -119,18 +132,18 @@ export default function AvatarMotionBackground() {
         // Draw node dot
         ctx.beginPath();
         ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(96, 165, 250, 0.6)";
+        ctx.fillStyle = "rgba(96, 165, 250, 0.7)";
         ctx.fill();
 
         // Connect node to mouse cursor if within range
         const dxMouse = mouseX - node.x;
         const dyMouse = mouseY - node.y;
         const distMouse = Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse);
-        if (distMouse < 180) {
+        if (distMouse < 200) {
           ctx.beginPath();
           ctx.moveTo(node.x, node.y);
           ctx.lineTo(mouseX, mouseY);
-          ctx.strokeStyle = `rgba(147, 197, 253, ${0.4 * (1 - distMouse / 180)})`;
+          ctx.strokeStyle = `rgba(147, 197, 253, ${0.45 * (1 - distMouse / 200)})`;
           ctx.lineWidth = 1;
           ctx.stroke();
         }
@@ -141,11 +154,11 @@ export default function AvatarMotionBackground() {
           const dx = other.x - node.x;
           const dy = other.y - node.y;
           const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 120) {
+          if (dist < 130) {
             ctx.beginPath();
             ctx.moveTo(node.x, node.y);
             ctx.lineTo(other.x, other.y);
-            ctx.strokeStyle = `rgba(59, 130, 246, ${0.25 * (1 - dist / 120)})`;
+            ctx.strokeStyle = `rgba(59, 130, 246, ${0.3 * (1 - dist / 130)})`;
             ctx.lineWidth = 0.8;
             ctx.stroke();
           }

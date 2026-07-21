@@ -6,28 +6,39 @@ export async function middleware(request: NextRequest) {
   const path = request.nextUrl.pathname;
   const correlationId = request.headers.get('x-correlation-id') || `sg-${Date.now()}-${Math.random().toString(36).substring(2, 7)}`;
   
-  // Public routes
-  const isPublicRoute =
-    path === '/' ||
+  // Auth routes (login/signup)
+  const isAuthPage =
     path === '/login' ||
     path === '/signup' ||
     path === '/forgot-password' ||
     path === '/reset-password' ||
-    path === '/verify-email' ||
-    path.startsWith('/api/auth') ||
+    path === '/verify-email';
+
+  // Protected routes that require authentication
+  const isProtectedRoute =
     path.startsWith('/dashboard') ||
-    path.startsWith('/reports');
+    path.startsWith('/reports') ||
+    path.startsWith('/api/analyze') ||
+    path.startsWith('/api/exports');
   
   const sessionCookie = request.cookies.get('sg_session')?.value;
   const payload = sessionCookie ? await decrypt(sessionCookie) : null;
   
-  if (!payload && !isPublicRoute) {
+  // 1. Redirect unauthenticated users away from protected routes
+  if (!payload && isProtectedRoute) {
     if (path.startsWith('/api/')) {
-      const res = NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
+      const res = NextResponse.json({ success: false, error: 'Unauthorized. Please sign in.' }, { status: 401 });
       res.headers.set('X-Correlation-ID', correlationId);
       return res;
     }
-    return NextResponse.redirect(new URL('/login', request.nextUrl));
+    const loginUrl = new URL('/login', request.nextUrl);
+    loginUrl.searchParams.set('redirect', path);
+    return NextResponse.redirect(loginUrl);
+  }
+
+  // 2. Redirect authenticated users away from login/signup to home/dashboard
+  if (payload && isAuthPage) {
+    return NextResponse.redirect(new URL('/', request.nextUrl));
   }
   
   const response = NextResponse.next();
