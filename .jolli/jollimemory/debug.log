@@ -183,3 +183,51 @@ fatal: Invalid revision range a500aebf3d6585ebca4d76ffb267078082f1ef2b..59f81583
 [2026-07-21T18:03:50.641Z] WARN  [PrePushHook] [trace=6fb4946a544d27a8c72a82542fdd4239] git rev-list failed for refs/heads/main: Command failed: git rev-list --reverse a500aebf3d6585ebca4d76ffb267078082f1ef2b..59f81583b06f0b5749a7378c2a6ba829c6b35261
 fatal: Invalid revision range a500aebf3d6585ebca4d76ffb267078082f1ef2b..59f81583b06f0b5749a7378c2a6ba829c6b35261
 
+[2026-07-21T18:13:53.029Z] INFO  [PrepareMsgHook] === Prepare-commit-msg hook started (source: message) ===
+[2026-07-21T18:13:53.168Z] INFO  [PrepareMsgHook] === Prepare-commit-msg hook finished ===
+[2026-07-21T18:13:53.752Z] INFO  [PostCommitHook] [trace=f33f22f4d6984495b97d4fcd6b9f8376] Detected operation: commit
+[2026-07-21T18:13:53.877Z] INFO  [PostCommitHook] [trace=f33f22f4d6984495b97d4fcd6b9f8376] Enqueued: type=commit hash=09fef683
+[2026-07-21T18:13:53.878Z] INFO  [QueueWorker] [trace=f33f22f4d6984495b97d4fcd6b9f8376] Launching background worker
+[2026-07-21T18:13:53.889Z] INFO  [QueueWorker] [trace=f33f22f4d6984495b97d4fcd6b9f8376] Background worker spawned (PID: 24572)
+[2026-07-21T18:13:54.092Z] INFO  [QueueWorker] [trace=f33f22f4d6984495b97d4fcd6b9f8376] === Queue worker started === node=26.2.0 kind=vscode-plugin source=antigravity-ide pkgVer=0.99.8 cliVer=0.99.8 dist=c:\Users\ravir\.antigravity-ide\extensions\jolli.jollimemory-vscode-0.99.8-universal\dist
+[2026-07-21T18:13:54.103Z] INFO  [StorageFactory] [trace=f33f22f4d6984495b97d4fcd6b9f8376] StorageFactory.create: storageMode=dual-write, projectPath=C:\Users\ravir\Desktop\PROJECT\p1\SPY
+[2026-07-21T18:13:54.302Z] INFO  [StorageFactory] [trace=f33f22f4d6984495b97d4fcd6b9f8376] Storage mode: dual-write (primary=orphan, shadow=folder)
+[2026-07-21T18:13:54.308Z] INFO  [QueueWorker] [trace=9f546903e8e51150b86515e859bda675] Processing queue entry: type=commit hash=59f81583
+[2026-07-21T18:13:54.381Z] INFO  [GitOps] [trace=9f546903e8e51150b86515e859bda675] Commit 59f81583: Initial enterprise platform commit
+[2026-07-21T18:13:54.381Z] INFO  [QueueWorker] [trace=9f546903e8e51150b86515e859bda675] Commit: 59f81583 - Initial enterprise platform commit (70ms)
+[2026-07-21T18:13:54.446Z] INFO  [QueueWorker] [trace=9f546903e8e51150b86515e859bda675] Discovered 2 Copilot Chat session(s)
+[2026-07-21T18:13:54.453Z] INFO  [SessionTracker] [trace=9f546903e8e51150b86515e859bda675] Config saved to C:\Users\ravir\.jolli\jollimemory
+[2026-07-21T18:13:54.532Z] WARN  [GitOps] [trace=9f546903e8e51150b86515e859bda675] Diff failed, trying diff of HEAD against empty tree
+[2026-07-21T18:13:54.943Z] WARN  [GitOps] [trace=9f546903e8e51150b86515e859bda675] Diff exceeds 150000-char budget (730871 chars) — prepending --stat file list and truncating body
+[2026-07-21T18:13:55.002Z] INFO  [QueueWorker] [trace=9f546903e8e51150b86515e859bda675] Git diff: 0 files changed, +0 -0 (533ms)
+[2026-07-21T18:13:55.002Z] INFO  [QueueWorker] [trace=9f546903e8e51150b86515e859bda675] No new transcript entries and no file changes. Skipping summary generation.
+[2026-07-21T18:13:55.065Z] WARN  [SummaryStore] [trace=9f546903e8e51150b86515e859bda675] loadIndex: index.json unreadable from Hp (fresh repo or backend read failed)
+[2026-07-21T18:13:55.067Z] INFO  [QueueWorker] [trace=f33f22f4d6984495b97d4fcd6b9f8376] Processing queue entry: type=commit hash=09fef683
+[2026-07-21T18:13:55.133Z] INFO  [GitOps] [trace=f33f22f4d6984495b97d4fcd6b9f8376] Commit 09fef683: Add Naukri.com support to platform registry and adapter
+[2026-07-21T18:13:55.134Z] INFO  [QueueWorker] [trace=f33f22f4d6984495b97d4fcd6b9f8376] Commit: 09fef683 - Add Naukri.com support to platform registry and adapter (65ms)
+[2026-07-21T18:13:55.167Z] INFO  [QueueWorker] [trace=f33f22f4d6984495b97d4fcd6b9f8376] Discovered 2 Copilot Chat session(s)
+[2026-07-21T18:13:55.586Z] INFO  [QueueWorker] [trace=f33f22f4d6984495b97d4fcd6b9f8376] Git diff: 4 files changed, +26 -1 (408ms)
+[2026-07-21T18:13:56.067Z] INFO  [QueueWorker] [trace=f33f22f4d6984495b97d4fcd6b9f8376] Prompt blocks: plans=0 notes=0 references=0 (AI soft-excluded 0)
+[2026-07-21T18:13:56.067Z] INFO  [Summarizer] [trace=f33f22f4d6984495b97d4fcd6b9f8376] Generating summary for commit 09fef683
+[2026-07-21T18:13:56.068Z] INFO  [Summarizer] [trace=f33f22f4d6984495b97d4fcd6b9f8376] Context: transcript=0, files=4, lines=26+1
+[2026-07-21T18:13:56.068Z] WARN  [QueueWorker] [trace=f33f22f4d6984495b97d4fcd6b9f8376] First API attempt failed: No LLM provider available. Set an Anthropic API key (ANTHROPIC_API_KEY) or configure a Jolli Space API key (jolliApiKey).. Retrying in 2000ms...
+[2026-07-21T18:13:57.035Z] INFO  [PrePushHook] [trace=f9dae0914171ee95b07b27eaa02bc8d2] pre-push hook: remote=origin budget=3000ms
+[2026-07-21T18:13:57.236Z] INFO  [PushPendingStore] [trace=f9dae0914171ee95b07b27eaa02bc8d2] Enqueued 1 new push-pending entries (branch=main)
+[2026-07-21T18:13:57.239Z] INFO  [PrePushHook] [trace=f9dae0914171ee95b07b27eaa02bc8d2] pre-push: recorded 1 commit(s) across 1 pushed ref(s)
+[2026-07-21T18:13:57.239Z] INFO  [PrePushHook] [trace=f9dae0914171ee95b07b27eaa02bc8d2] Recorded 1 commit(s) for later sync — not signed in to Jolli
+[2026-07-21T18:13:57.240Z] INFO  [StorageFactory] [trace=f9dae0914171ee95b07b27eaa02bc8d2] StorageFactory.create: storageMode=dual-write, projectPath=C:\Users\ravir\Desktop\PROJECT\p1\SPY
+[2026-07-21T18:13:57.402Z] INFO  [StorageFactory] [trace=f9dae0914171ee95b07b27eaa02bc8d2] Storage mode: dual-write (primary=orphan, shadow=folder)
+[2026-07-21T18:13:57.473Z] WARN  [SummaryStore] [trace=f9dae0914171ee95b07b27eaa02bc8d2] loadIndex: index.json unreadable from Dt (fresh repo or backend read failed)
+[2026-07-21T18:13:58.078Z] INFO  [Summarizer] [trace=f33f22f4d6984495b97d4fcd6b9f8376] Generating summary for commit 09fef683
+[2026-07-21T18:13:58.079Z] INFO  [Summarizer] [trace=f33f22f4d6984495b97d4fcd6b9f8376] Context: transcript=0, files=4, lines=26+1
+[2026-07-21T18:13:58.079Z] ERROR [QueueWorker] [trace=f33f22f4d6984495b97d4fcd6b9f8376] API call failed after retry: No LLM provider available. Set an Anthropic API key (ANTHROPIC_API_KEY) or configure a Jolli Space API key (jolliApiKey).
+[2026-07-21T18:13:58.079Z] WARN  [QueueWorker] [trace=f33f22f4d6984495b97d4fcd6b9f8376] Saving summary with empty topics + summaryError marker for commit 09fef683
+[2026-07-21T18:13:58.079Z] INFO  [QueueWorker] [trace=f33f22f4d6984495b97d4fcd6b9f8376] API summary generated (2.0s)
+[2026-07-21T18:13:58.080Z] INFO  [QueueWorker] [trace=f33f22f4d6984495b97d4fcd6b9f8376] Plan registry scan: found 0 uncommitted slug(s) on main: []
+[2026-07-21T18:13:58.080Z] INFO  [QueueWorker] [trace=f33f22f4d6984495b97d4fcd6b9f8376] Plan association: detected 0 slug(s) from transcripts: []
+[2026-07-21T18:13:58.081Z] INFO  [QueueWorker] [trace=f33f22f4d6984495b97d4fcd6b9f8376] Note registry scan: found 0 uncommitted note(s) on main: []
+[2026-07-21T18:13:58.081Z] INFO  [QueueWorker] [trace=f33f22f4d6984495b97d4fcd6b9f8376] Note association: detected 0 note(s): []
+[2026-07-21T18:13:58.082Z] INFO  [QueueWorker] [trace=f33f22f4d6984495b97d4fcd6b9f8376] Reference association: detected 0 ref(s) for branch main
+[2026-07-21T18:13:58.082Z] INFO  [QueueWorker] [trace=f33f22f4d6984495b97d4fcd6b9f8376] Summary built for 09fef683: recap=no, topics=0, plans=absent, notes=absent, references=absent
+[2026-07-21T18:13:58.187Z] WARN  [SummaryStore] [trace=f33f22f4d6984495b97d4fcd6b9f8376] loadIndex: index.json unreadable from Hp (fresh repo or backend read failed)
+[2026-07-21T18:13:58.356Z] INFO  [GitOps] [trace=f33f22f4d6984495b97d4fcd6b9f8376] Creating orphan branch 'jollimemory/summaries/v3' using plumbing commands
