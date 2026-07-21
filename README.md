@@ -1,4 +1,5 @@
 # SPY Social Network (SocialGraph Atlas)
+
 > **AI-Powered Profile Intelligence, Geointelligence Mapping & Business Growth SaaS**
 
 [![Next.js 15](https://img.shields.io/badge/Next.js-15_App_Router-black?style=flat-square&logo=next.js)](https://nextjs.org/)
@@ -27,6 +28,7 @@ Modern marketing, recruiting, and business intelligence teams face three major h
 3. **Privacy & Compliance Risk**: Scraping private identities can lead to legal issues. SPY Social Network focuses on **aggregated network analytics** and **geointelligence density**, enabling privacy-preserving HR recruitment and B2B marketing decisions.
 
 ### Core Promise
+
 > *"Enter any profile link or user ID, and the platform instantly generates audience geo-distribution maps, network density analytics, and AI growth recommendations."*
 
 ---
@@ -56,46 +58,54 @@ Modern marketing, recruiting, and business intelligence teams face three major h
 ## 🚀 Getting Started
 
 ### Prerequisites
-- Node.js 18+ 
+
+- Node.js 18+
 - PostgreSQL Database
 
 ### Installation
+
 1. **Clone the repository:**
+
    ```bash
    git clone https://github.com/Hellthefox808/SPY-Social-Network.git
    cd SPY-Social-Network
    ```
 
 2. **Install dependencies:**
+
    ```bash
    npm install
    ```
 
 3. **Configure Environment Variables:**
+
    Create a `.env` file in the root directory:
+
    ```env
    DATABASE_URL="postgresql://user:password@localhost:5432/spy_db"
    SESSION_SECRET="your_production_secret_key_here"
    ```
 
 4. **Initialize Database:**
+
    ```bash
    npx prisma db push
    ```
 
 5. **Run Development Server:**
+
    ```bash
    npm run dev
    ```
+
    Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
 
 ## 👨‍💻 Author & Creator
 
-This project is created and maintained by:
+### Hellthefox808 (Ravi)
 
-**Hellthefox808 (Ravi)**
 - **GitHub**: [@Hellthefox808](https://github.com/Hellthefox808)
 - **Project Repository**: [SPY-Social-Network](https://github.com/Hellthefox808/SPY-Social-Network)
 
