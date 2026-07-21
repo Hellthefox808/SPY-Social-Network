@@ -84,15 +84,14 @@ export default function Home() {
         transition={{ duration: 0.6, ease: "easeOut" }}
         className="w-full max-w-4xl text-center space-y-6 relative z-10"
       >
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-blue-500/30 bg-blue-500/10 text-xs font-semibold text-blue-300">
-          <ShieldCheck className="h-4 w-4" /> Live OSINT & Intelligence Engine
+        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-blue-500/30 bg-blue-500/10 text-xs font-semibold text-blue-300">
+          <ShieldCheck className="h-4 w-4 text-blue-400" /> Consent-First AI Profile Intelligence SaaS
         </div>
-        <h1 className="text-4xl font-extrabold sm:text-6xl tracking-tight bg-gradient-to-b from-white to-slate-400 bg-clip-text text-transparent">
-          Map Real Social Graphs
+        <h1 className="text-4xl font-extrabold sm:text-6xl tracking-tight bg-gradient-to-b from-white via-slate-100 to-slate-400 bg-clip-text text-transparent">
+          Turn Profile Data Into <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">Market Intelligence</span>
         </h1>
-        <p className="max-w-2xl mx-auto text-base sm:text-lg text-slate-400">
-          Paste any public GitHub username/URL, Reddit profile, or website URL. 
-          Extract real public connections, geo-signals, and render an interactive graph.
+        <p className="max-w-2xl mx-auto text-base sm:text-lg text-slate-300 leading-relaxed">
+          AI-powered profile intelligence platform that converts authorized and public profile signals into audience geography, growth insights, and decision-ready business reports.
         </p>
       </motion.div>
 
@@ -173,38 +172,35 @@ export default function Home() {
         </div>
       </div>
 
-      {/* How it works */}
+      {/* Decision Layer Pipeline */}
       <div className="w-full max-w-5xl mt-20 border-t border-slate-900/80 pt-16 relative z-10">
-        <h2 className="text-2xl font-bold text-center text-slate-200">Live OSINT Pipeline</h2>
+        <h2 className="text-2xl font-bold text-center text-slate-200">The Decision Layer Architecture</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
           <div className="bg-slate-950/60 backdrop-blur-md border border-slate-900 p-6 rounded-xl space-y-3 shadow-lg">
             <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-500/10 text-blue-400">
               <FileSearch2 className="h-5 w-5" />
             </div>
-            <h3 className="font-semibold text-slate-200">1. Real API Extraction</h3>
+            <h3 className="font-semibold text-slate-200">1. Ingest &amp; Normalize</h3>
             <p className="text-xs text-slate-400 leading-relaxed">
-              Fetches live GitHub endpoints, public Reddit JSON feeds, or page metadata with 
-              exponential backoff and zero mock fallbacks.
+              Ingests authorized profile endpoints across GitHub, LinkedIn, Naukri.com, and social channels into structured entities.
             </p>
           </div>
           <div className="bg-slate-950/60 backdrop-blur-md border border-slate-900 p-6 rounded-xl space-y-3 shadow-lg">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-500/10 text-blue-400">
+            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-500/10 text-indigo-400">
               <Network className="h-5 w-5" />
             </div>
-            <h3 className="font-semibold text-slate-200">2. Relationship Mapping</h3>
+            <h3 className="font-semibold text-slate-200">2. Multi-Agent &amp; 10-Metric Score</h3>
             <p className="text-xs text-slate-400 leading-relaxed">
-              Discovers authentic organization ties, user repos, linked social profiles, 
-              and active subreddit participations.
+              Specialized AI agents calculate deterministic scores across Technical Depth, Network Reach, and Skill Maturity.
             </p>
           </div>
           <div className="bg-slate-950/60 backdrop-blur-md border border-slate-900 p-6 rounded-xl space-y-3 shadow-lg">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-500/10 text-blue-400">
+            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-500/10 text-emerald-400">
               <MapPin className="h-5 w-5" />
             </div>
-            <h3 className="font-semibold text-slate-200">3. Live Geocoding</h3>
+            <h3 className="font-semibold text-slate-200">3. Geo-Heatmap &amp; Executive Export</h3>
             <p className="text-xs text-slate-400 leading-relaxed">
-              Declared profile location fields are geocoded using OpenStreetMap Nominatim 
-              with confidence scoring metrics.
+              Renders high-density geographic cluster maps and exports decision-ready PDF briefings for marketing and HR teams.
             </p>
           </div>
         </div>
