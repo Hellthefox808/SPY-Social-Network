@@ -14,7 +14,7 @@ export function getAdapterForUrl(url: string): ISocialAdapter {
   if (platform === "reddit") {
     return new RedditAdapter();
   }
-  if (["instagram", "x", "linkedin", "youtube", "tiktok"].includes(platform)) {
+  if (["instagram", "x", "linkedin", "naukri", "youtube", "tiktok"].includes(platform)) {
     return new MockSocialAdapter(platform);
   }
 
@@ -29,6 +29,7 @@ export function detectPlatform(url: string): string {
   if (normalized.includes("instagram.com")) return "instagram";
   if (normalized.includes("twitter.com") || normalized.includes("x.com")) return "x";
   if (normalized.includes("linkedin.com")) return "linkedin";
+  if (normalized.includes("naukri.com")) return "naukri";
   if (normalized.includes("youtube.com")) return "youtube";
   if (normalized.includes("tiktok.com")) return "tiktok";
   return "website";

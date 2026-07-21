@@ -151,6 +151,8 @@ export class MockSocialAdapter implements ISocialAdapter {
         return `Building things in public. Mostly talking about AI, web architecture, and design. Views are my own.`;
       case "linkedin":
         return `Senior Systems Architect | Developing distributed databases & mapping graph structures. Former Stanford CS.`;
+      case "naukri":
+        return `Experienced Lead Engineer on Naukri.com | 8+ years expertise in Cloud Infrastructure, Distributed Systems & Fullstack Architecture.`;
       case "youtube":
         return `Weekly tutorials on web development, interactive maps, and design systems. Subscribe for new videos!`;
       case "tiktok":

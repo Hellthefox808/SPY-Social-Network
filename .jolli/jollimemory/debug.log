@@ -169,3 +169,17 @@
 [2026-07-21T17:53:50.522Z] WARN  [ReadStorageResolver] createReadStorage: folder lacks index.json — falling back to orphan branch (migration incomplete, or folder wiped)
 [2026-07-21T17:53:50.615Z] WARN  [SummaryStore] loadIndex: index.json unreadable from $r (fresh repo or backend read failed)
 [2026-07-21T17:53:50.706Z] INFO  [SidebarWebviewProvider] pushMemories: 0 item(s)
+[2026-07-21T18:02:34.275Z] INFO  [PrepareMsgHook] === Prepare-commit-msg hook started (source: message) ===
+[2026-07-21T18:02:34.526Z] INFO  [PrepareMsgHook] === Prepare-commit-msg hook finished ===
+[2026-07-21T18:02:35.500Z] INFO  [PostCommitHook] [trace=9f546903e8e51150b86515e859bda675] Detected operation: commit
+[2026-07-21T18:02:35.618Z] INFO  [PostCommitHook] [trace=9f546903e8e51150b86515e859bda675] Enqueued: type=commit hash=59f81583
+[2026-07-21T18:02:35.618Z] INFO  [QueueWorker] [trace=9f546903e8e51150b86515e859bda675] Launching background worker
+[2026-07-21T18:02:35.628Z] INFO  [QueueWorker] [trace=9f546903e8e51150b86515e859bda675] Background worker spawned (PID: 13412)
+[2026-07-21T18:03:42.501Z] INFO  [PrePushHook] [trace=52b90dc3c1165905acec2d98c8db8efd] pre-push hook: remote=origin budget=3000ms
+[2026-07-21T18:03:42.567Z] WARN  [PrePushHook] [trace=52b90dc3c1165905acec2d98c8db8efd] git rev-list failed for refs/heads/main: Command failed: git rev-list --reverse a500aebf3d6585ebca4d76ffb267078082f1ef2b..59f81583b06f0b5749a7378c2a6ba829c6b35261
+fatal: Invalid revision range a500aebf3d6585ebca4d76ffb267078082f1ef2b..59f81583b06f0b5749a7378c2a6ba829c6b35261
+
+[2026-07-21T18:03:50.575Z] INFO  [PrePushHook] [trace=6fb4946a544d27a8c72a82542fdd4239] pre-push hook: remote=origin budget=3000ms
+[2026-07-21T18:03:50.641Z] WARN  [PrePushHook] [trace=6fb4946a544d27a8c72a82542fdd4239] git rev-list failed for refs/heads/main: Command failed: git rev-list --reverse a500aebf3d6585ebca4d76ffb267078082f1ef2b..59f81583b06f0b5749a7378c2a6ba829c6b35261
+fatal: Invalid revision range a500aebf3d6585ebca4d76ffb267078082f1ef2b..59f81583b06f0b5749a7378c2a6ba829c6b35261
+
