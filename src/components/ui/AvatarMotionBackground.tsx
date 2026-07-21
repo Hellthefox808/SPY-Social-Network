@@ -55,7 +55,11 @@ export default function AvatarMotionBackground() {
     window.addEventListener("mousemove", handleMouseMove);
 
     // Initialize Tech Nodes for Cyber Grid Overlay
-    const nodeCount = Math.floor(Math.min(width, height) / 18);
+    // Cap max nodes to 40 to prevent O(N^2) lag on large screens
+    const maxNodes = 40;
+    const calculatedNodes = Math.floor(Math.min(width, height) / 25);
+    const nodeCount = Math.min(calculatedNodes, maxNodes);
+    
     const nodes: NodeParticle[] = Array.from({ length: nodeCount }, () => ({
       x: Math.random() * width,
       y: Math.random() * height,
@@ -64,40 +68,57 @@ export default function AvatarMotionBackground() {
       radius: 1.5 + Math.random() * 2,
     }));
 
+    // Pre-render static grid on an offscreen canvas to save CPU cycles
+    const gridCanvas = document.createElement("canvas");
+    gridCanvas.width = width;
+    gridCanvas.height = height;
+    const gridCtx = gridCanvas.getContext("2d");
+    if (gridCtx) {
+      gridCtx.strokeStyle = "rgba(59, 130, 246, 0.08)";
+      gridCtx.lineWidth = 1;
+      const gridSize = 45;
+      for (let x = 0; x < width; x += gridSize) {
+        gridCtx.beginPath();
+        gridCtx.moveTo(x, 0);
+        gridCtx.lineTo(x, height);
+        gridCtx.stroke();
+      }
+      for (let y = 0; y < height; y += gridSize) {
+        gridCtx.beginPath();
+        gridCtx.moveTo(0, y);
+        gridCtx.lineTo(width, y);
+        gridCtx.stroke();
+      }
+    }
+
     // Video play setup
     video.muted = true;
     video.loop = true;
     video.playsInline = true;
     video.play().catch(() => {});
 
+    let lastVideoUpdateTime = 0;
+
     // Render RAF Loop
-    const render = () => {
+    const render = (timestamp: number) => {
       ctx.clearRect(0, 0, width, height);
 
-      // 1. Smooth RAF Video Time Scrubbing matching avatar head motion to mouse X position
+      // 1. Smooth RAF Video Time Scrubbing (Throttled)
       if (video.duration && !isNaN(video.duration)) {
-        currentProgress += (targetProgress - currentProgress) * 0.12; // Increased responsiveness
+        currentProgress += (targetProgress - currentProgress) * 0.12; 
         const targetTime = currentProgress * video.duration;
-        if (Math.abs(video.currentTime - targetTime) > 0.01) {
+        
+        // Only update video.currentTime if delta is noticeable and at least 40ms has passed since last update
+        // This prevents the decoder from stalling and dropping frames on scrubbing
+        if (Math.abs(video.currentTime - targetTime) > 0.04 && timestamp - lastVideoUpdateTime > 40) {
           video.currentTime = targetTime;
+          lastVideoUpdateTime = timestamp;
         }
       }
 
-      // 2. Render Tech Grid Background Lines
-      ctx.strokeStyle = "rgba(59, 130, 246, 0.08)";
-      ctx.lineWidth = 1;
-      const gridSize = 45;
-      for (let x = 0; x < width; x += gridSize) {
-        ctx.beginPath();
-        ctx.moveTo(x, 0);
-        ctx.lineTo(x, height);
-        ctx.stroke();
-      }
-      for (let y = 0; y < height; y += gridSize) {
-        ctx.beginPath();
-        ctx.moveTo(0, y);
-        ctx.lineTo(width, y);
-        ctx.stroke();
+      // 2. Render Tech Grid Background Lines from Pre-rendered Offscreen Canvas
+      if (gridCanvas.width > 0) {
+        ctx.drawImage(gridCanvas, 0, 0);
       }
 
       // 3. Render Cyber Cursor Glow Spotlight following mouse
@@ -122,6 +143,7 @@ export default function AvatarMotionBackground() {
       ctx.restore();
 
       // 5. Render Interactive Tech Nodes & Network Connections
+      ctx.lineWidth = 0.8;
       nodes.forEach((node, i) => {
         node.x += node.vx;
         node.y += node.vy;
@@ -144,7 +166,6 @@ export default function AvatarMotionBackground() {
           ctx.moveTo(node.x, node.y);
           ctx.lineTo(mouseX, mouseY);
           ctx.strokeStyle = `rgba(147, 197, 253, ${0.45 * (1 - distMouse / 200)})`;
-          ctx.lineWidth = 1;
           ctx.stroke();
         }
 
@@ -159,7 +180,6 @@ export default function AvatarMotionBackground() {
             ctx.moveTo(node.x, node.y);
             ctx.lineTo(other.x, other.y);
             ctx.strokeStyle = `rgba(59, 130, 246, ${0.3 * (1 - dist / 130)})`;
-            ctx.lineWidth = 0.8;
             ctx.stroke();
           }
         }
@@ -170,7 +190,7 @@ export default function AvatarMotionBackground() {
       }
     };
 
-    render();
+    animId = requestAnimationFrame(render);
 
     return () => {
       window.removeEventListener("resize", handleResize);
