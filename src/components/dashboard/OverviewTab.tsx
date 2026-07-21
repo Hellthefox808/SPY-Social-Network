@@ -151,8 +151,8 @@ export default function OverviewTab({
                 <TrendingUp className="h-3.5 w-3.5 text-emerald-400" /> Strategic Action Items:
               </div>
               <ul className="space-y-1 text-[11px] text-purple-200/80 list-disc pl-4">
-                <li>Primary audience density detected in regional clusters; target localized marketing & recruitment outreach.</li>
-                <li>Network node amplification potential is high (>85% confidence score across verified public endpoints).</li>
+                <li>Primary audience density detected in regional clusters; target localized marketing &amp; recruitment outreach.</li>
+                <li>Network node amplification potential is high (&gt;85% confidence score across verified public endpoints).</li>
                 <li>Recommended Next Step: Export full PDF executive briefing for team stakeholder review.</li>
               </ul>
             </div>
