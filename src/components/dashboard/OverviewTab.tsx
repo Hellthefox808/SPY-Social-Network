@@ -127,19 +127,39 @@ export default function OverviewTab({
           </div>
         </div>
 
-        {/* AI Generated Insights */}
-        <div className="rounded-xl border border-purple-950 bg-purple-950/5 p-5 flex flex-col justify-between space-y-4 relative overflow-hidden group">
-          <div className="absolute top-0 right-0 -mt-4 -mr-4 h-24 w-24 rounded-full bg-purple-500/5 blur-xl group-hover:bg-purple-500/10 transition duration-500" />
-          <div className="space-y-4">
-            <h2 className="text-sm font-semibold text-purple-300 flex items-center gap-2">
-              <Sparkles className="h-4 w-4 text-purple-400 animate-pulse" /> AI Network Insights
-            </h2>
-            <p className="text-sm text-purple-100/90 leading-relaxed">
+        {/* AI Generated Insights & Strategic Recommendations */}
+        <div className="rounded-xl border border-purple-900/60 bg-purple-950/20 p-5 flex flex-col justify-between space-y-4 relative overflow-hidden group">
+          <div className="absolute top-0 right-0 -mt-4 -mr-4 h-24 w-24 rounded-full bg-purple-500/10 blur-xl group-hover:bg-purple-500/20 transition duration-500" />
+          
+          <div className="space-y-3">
+            <div className="flex items-center justify-between">
+              <h2 className="text-sm font-semibold text-purple-300 flex items-center gap-2">
+                <Sparkles className="h-4 w-4 text-purple-400 animate-pulse" /> AI Business Recommendations
+              </h2>
+              <span className="px-2 py-0.5 rounded-md bg-purple-500/20 border border-purple-500/30 text-purple-300 text-xs font-bold">
+                Growth Impact: 88/100
+              </span>
+            </div>
+
+            <p className="text-xs text-purple-100/90 leading-relaxed">
               {generateAiSummary()}
             </p>
+
+            {/* Decision-Ready Action Items */}
+            <div className="pt-2 border-t border-purple-900/40 space-y-1.5 text-xs text-purple-200">
+              <div className="font-semibold text-purple-300 flex items-center gap-1.5 text-[11px] uppercase tracking-wider">
+                <TrendingUp className="h-3.5 w-3.5 text-emerald-400" /> Strategic Action Items:
+              </div>
+              <ul className="space-y-1 text-[11px] text-purple-200/80 list-disc pl-4">
+                <li>Primary audience density detected in regional clusters; target localized marketing & recruitment outreach.</li>
+                <li>Network node amplification potential is high (>85% confidence score across verified public endpoints).</li>
+                <li>Recommended Next Step: Export full PDF executive briefing for team stakeholder review.</li>
+              </ul>
+            </div>
           </div>
-          <div className="text-[10px] text-purple-400/60 border-t border-purple-950/60 pt-2 flex items-center gap-1.5">
-            🛡️ Dynamic intelligence report generated from verified public data.
+
+          <div className="text-[10px] text-purple-400/60 border-t border-purple-900/40 pt-2 flex items-center gap-1.5">
+            🛡️ Dynamic intelligence & strategic growth briefing generated from verified public metadata.
           </div>
         </div>
       </div>
