@@ -12,6 +12,7 @@ import {
   TrendingUp,
 } from "lucide-react";
 import { AnalysisJobData, JobProfile, JobEdge, JobLocation } from "@/types/osint";
+import AICopilotWidget from "./AICopilotWidget";
 
 export interface OverviewTabProps {
   job: AnalysisJobData;
@@ -163,6 +164,9 @@ export default function OverviewTab({
           </div>
         </div>
       </div>
+
+      {/* AI Copilot Decision Assistant */}
+      <AICopilotWidget profile={profile} edges={filteredConnections} locations={filteredLocations} />
 
       {/* Metrics Cards Grid */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
