@@ -772,3 +772,57 @@ fatal: Invalid revision range a500aebf3d6585ebca4d76ffb267078082f1ef2b..59f81583
 [2026-07-21T19:22:49.279Z] INFO  [Summarizer] [trace=456bb7c85f6f7c7339674b7389c65c7a] Generating summary for commit 0bed7fff
 [2026-07-21T19:22:49.279Z] INFO  [Summarizer] [trace=456bb7c85f6f7c7339674b7389c65c7a] Context: transcript=0, files=6, lines=76+10
 [2026-07-21T19:22:49.280Z] WARN  [QueueWorker] [trace=456bb7c85f6f7c7339674b7389c65c7a] First API attempt failed: No LLM provider available. Set an Anthropic API key (ANTHROPIC_API_KEY) or configure a Jolli Space API key (jolliApiKey).. Retrying in 2000ms...
+[2026-07-21T19:28:08.004Z] INFO  [PrepareMsgHook] === Prepare-commit-msg hook started (source: message) ===
+[2026-07-21T19:28:08.076Z] INFO  [PrepareMsgHook] === Prepare-commit-msg hook finished ===
+[2026-07-21T19:28:08.535Z] INFO  [PostCommitHook] [trace=00cf0968219c024aa8a5aa36a9269812] Detected operation: commit
+[2026-07-21T19:28:08.635Z] INFO  [PostCommitHook] [trace=00cf0968219c024aa8a5aa36a9269812] Enqueued: type=commit hash=48ec2b0b
+[2026-07-21T19:28:08.635Z] INFO  [QueueWorker] [trace=00cf0968219c024aa8a5aa36a9269812] Launching background worker
+[2026-07-21T19:28:08.645Z] INFO  [QueueWorker] [trace=00cf0968219c024aa8a5aa36a9269812] Background worker spawned (PID: 31776)
+[2026-07-21T19:28:08.847Z] INFO  [QueueWorker] [trace=00cf0968219c024aa8a5aa36a9269812] === Queue worker started === node=26.2.0 kind=vscode-plugin source=antigravity-ide pkgVer=0.99.8 cliVer=0.99.8 dist=c:\Users\ravir\.antigravity-ide\extensions\jolli.jollimemory-vscode-0.99.8-universal\dist
+[2026-07-21T19:28:08.855Z] WARN  [LockPrimitives] [trace=00cf0968219c024aa8a5aa36a9269812] Removing orphaned lock C:\Users\ravir\.jolli\jollimemory\locks\vault-4255070d57d1bda86f2474fe32e8031ca0c41b4eb355e6ffdda4d4119deb2a1d.lock (PID 25916 no longer running)
+[2026-07-21T19:28:08.859Z] INFO  [StorageFactory] [trace=00cf0968219c024aa8a5aa36a9269812] StorageFactory.create: storageMode=dual-write, projectPath=C:\Users\ravir\Desktop\PROJECT\p1\SPY
+[2026-07-21T19:28:09.000Z] INFO  [StorageFactory] [trace=00cf0968219c024aa8a5aa36a9269812] Storage mode: dual-write (primary=orphan, shadow=folder)
+[2026-07-21T19:28:09.001Z] WARN  [LockPrimitives] [trace=00cf0968219c024aa8a5aa36a9269812] Removing orphaned lock C:\Users\ravir\Desktop\PROJECT\p1\SPY\.jolli\jollimemory\worker.lock (PID 25916 no longer running)
+[2026-07-21T19:28:09.010Z] INFO  [QueueWorker] [trace=456bb7c85f6f7c7339674b7389c65c7a] Processing queue entry: type=commit hash=0bed7fff
+[2026-07-21T19:28:09.107Z] INFO  [GitOps] [trace=456bb7c85f6f7c7339674b7389c65c7a] Commit 0bed7fff: Fix TypeScript verified field on JobProfile in KnowledgeGrap
+[2026-07-21T19:28:09.107Z] INFO  [QueueWorker] [trace=456bb7c85f6f7c7339674b7389c65c7a] Commit: 0bed7fff - Fix TypeScript verified field on JobProfile in KnowledgeGraphTab (94ms)
+[2026-07-21T19:28:09.169Z] INFO  [QueueWorker] [trace=456bb7c85f6f7c7339674b7389c65c7a] Discovered 2 Copilot Chat session(s)
+[2026-07-21T19:28:09.555Z] INFO  [QueueWorker] [trace=456bb7c85f6f7c7339674b7389c65c7a] Git diff: 6 files changed, +76 -10 (369ms)
+[2026-07-21T19:28:10.084Z] INFO  [QueueWorker] [trace=456bb7c85f6f7c7339674b7389c65c7a] Prompt blocks: plans=0 notes=0 references=0 (AI soft-excluded 0)
+[2026-07-21T19:28:10.084Z] INFO  [Summarizer] [trace=456bb7c85f6f7c7339674b7389c65c7a] Generating summary for commit 0bed7fff
+[2026-07-21T19:28:10.084Z] INFO  [Summarizer] [trace=456bb7c85f6f7c7339674b7389c65c7a] Context: transcript=0, files=6, lines=76+10
+[2026-07-21T19:28:10.085Z] WARN  [QueueWorker] [trace=456bb7c85f6f7c7339674b7389c65c7a] First API attempt failed: No LLM provider available. Set an Anthropic API key (ANTHROPIC_API_KEY) or configure a Jolli Space API key (jolliApiKey).. Retrying in 2000ms...
+[2026-07-21T19:28:12.094Z] INFO  [Summarizer] [trace=456bb7c85f6f7c7339674b7389c65c7a] Generating summary for commit 0bed7fff
+[2026-07-21T19:28:12.094Z] INFO  [Summarizer] [trace=456bb7c85f6f7c7339674b7389c65c7a] Context: transcript=0, files=6, lines=76+10
+[2026-07-21T19:28:12.095Z] ERROR [QueueWorker] [trace=456bb7c85f6f7c7339674b7389c65c7a] API call failed after retry: No LLM provider available. Set an Anthropic API key (ANTHROPIC_API_KEY) or configure a Jolli Space API key (jolliApiKey).
+[2026-07-21T19:28:12.095Z] WARN  [QueueWorker] [trace=456bb7c85f6f7c7339674b7389c65c7a] Saving summary with empty topics + summaryError marker for commit 0bed7fff
+[2026-07-21T19:28:12.095Z] INFO  [QueueWorker] [trace=456bb7c85f6f7c7339674b7389c65c7a] API summary generated (2.0s)
+[2026-07-21T19:28:12.096Z] INFO  [QueueWorker] [trace=456bb7c85f6f7c7339674b7389c65c7a] Plan registry scan: found 0 uncommitted slug(s) on main: []
+[2026-07-21T19:28:12.102Z] INFO  [QueueWorker] [trace=456bb7c85f6f7c7339674b7389c65c7a] Plan association: detected 0 slug(s) from transcripts: []
+[2026-07-21T19:28:12.103Z] INFO  [QueueWorker] [trace=456bb7c85f6f7c7339674b7389c65c7a] Note registry scan: found 0 uncommitted note(s) on main: []
+[2026-07-21T19:28:12.104Z] INFO  [QueueWorker] [trace=456bb7c85f6f7c7339674b7389c65c7a] Note association: detected 0 note(s): []
+[2026-07-21T19:28:12.105Z] INFO  [QueueWorker] [trace=456bb7c85f6f7c7339674b7389c65c7a] Reference association: detected 0 ref(s) for branch main
+[2026-07-21T19:28:12.106Z] INFO  [QueueWorker] [trace=456bb7c85f6f7c7339674b7389c65c7a] Summary built for 0bed7fff: recap=no, topics=0, plans=absent, notes=absent, references=absent
+[2026-07-21T19:28:12.900Z] INFO  [PrePushHook] [trace=09d3197c857564a7b15244692a50fcaf] pre-push hook: remote=origin budget=3000ms
+[2026-07-21T19:28:13.016Z] INFO  [PushPendingStore] [trace=09d3197c857564a7b15244692a50fcaf] Enqueued 1 new push-pending entries (branch=main)
+[2026-07-21T19:28:13.018Z] INFO  [PrePushHook] [trace=09d3197c857564a7b15244692a50fcaf] pre-push: recorded 1 commit(s) across 1 pushed ref(s)
+[2026-07-21T19:28:13.018Z] INFO  [PrePushHook] [trace=09d3197c857564a7b15244692a50fcaf] Recorded 1 commit(s) for later sync — not signed in to Jolli
+[2026-07-21T19:28:13.019Z] INFO  [StorageFactory] [trace=09d3197c857564a7b15244692a50fcaf] StorageFactory.create: storageMode=dual-write, projectPath=C:\Users\ravir\Desktop\PROJECT\p1\SPY
+[2026-07-21T19:28:13.219Z] INFO  [StorageFactory] [trace=09d3197c857564a7b15244692a50fcaf] Storage mode: dual-write (primary=orphan, shadow=folder)
+[2026-07-21T19:28:13.333Z] INFO  [GitOps] [trace=456bb7c85f6f7c7339674b7389c65c7a] Updated branch 'jollimemory/summaries/v3': 3 written, 0 deleted (via fast-import)
+[2026-07-21T19:28:13.633Z] INFO  [MetadataManager] [trace=456bb7c85f6f7c7339674b7389c65c7a] Manifest updated: main/fix-typescript-verified-field-on-jobprofile-in-kno-0bed7fff.md (commit)
+[2026-07-21T19:28:13.633Z] INFO  [FolderStorage] [trace=456bb7c85f6f7c7339674b7389c65c7a] Markdown generated: main/fix-typescript-verified-field-on-jobprofile-in-kno-0bed7fff.md
+[2026-07-21T19:28:13.648Z] INFO  [FolderStorage] [trace=456bb7c85f6f7c7339674b7389c65c7a] Wrote 3 files, deleted 0 (Add summary for 0bed7fff: Fix TypeScript verified field on JobProfile in Kno)
+[2026-07-21T19:28:13.649Z] INFO  [SummaryStore] [trace=456bb7c85f6f7c7339674b7389c65c7a] Summary stored successfully for commit 0bed7fff
+[2026-07-21T19:28:13.670Z] INFO  [QueueWorker] [trace=456bb7c85f6f7c7339674b7389c65c7a] Summary stored successfully for commit 0bed7fff (1.6s, 0 plans, 0 notes, 0 references)
+[2026-07-21T19:28:13.670Z] INFO  [QueueWorker] [trace=456bb7c85f6f7c7339674b7389c65c7a] === Pipeline completed in 4.7s ===
+[2026-07-21T19:28:13.670Z] INFO  [QueueWorker] [trace=456bb7c85f6f7c7339674b7389c65c7a] === Summary content (0 topics) ===
+[2026-07-21T19:28:13.766Z] INFO  [QueueWorker] [trace=c78352cf0982a491f37aa451e24ca5c5] Processing queue entry: type=commit hash=814046fc
+[2026-07-21T19:28:13.842Z] INFO  [GitOps] [trace=c78352cf0982a491f37aa451e24ca5c5] Commit 814046fc: Update Landing Page to Consent-First AI Profile Intelligence
+[2026-07-21T19:28:13.842Z] INFO  [QueueWorker] [trace=c78352cf0982a491f37aa451e24ca5c5] Commit: 814046fc - Update Landing Page to Consent-First AI Profile Intelligence SaaS positioning & Decision Layer Architecture (76ms)
+[2026-07-21T19:28:13.911Z] INFO  [QueueWorker] [trace=c78352cf0982a491f37aa451e24ca5c5] Discovered 2 Copilot Chat session(s)
+[2026-07-21T19:28:14.181Z] INFO  [QueueWorker] [trace=c78352cf0982a491f37aa451e24ca5c5] Git diff: 6 files changed, +91 -29 (212ms)
+[2026-07-21T19:28:14.356Z] INFO  [QueueWorker] [trace=c78352cf0982a491f37aa451e24ca5c5] Prompt blocks: plans=0 notes=0 references=0 (AI soft-excluded 0)
+[2026-07-21T19:28:14.356Z] INFO  [Summarizer] [trace=c78352cf0982a491f37aa451e24ca5c5] Generating summary for commit 814046fc
+[2026-07-21T19:28:14.356Z] INFO  [Summarizer] [trace=c78352cf0982a491f37aa451e24ca5c5] Context: transcript=0, files=6, lines=91+29
+[2026-07-21T19:28:14.356Z] WARN  [QueueWorker] [trace=c78352cf0982a491f37aa451e24ca5c5] First API attempt failed: No LLM provider available. Set an Anthropic API key (ANTHROPIC_API_KEY) or configure a Jolli Space API key (jolliApiKey).. Retrying in 2000ms...

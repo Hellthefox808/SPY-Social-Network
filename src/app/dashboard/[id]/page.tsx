@@ -20,7 +20,7 @@ import MapTab from "@/components/dashboard/MapTab";
 import NetworkTab from "@/components/dashboard/NetworkTab";
 import KnowledgeGraphTab from "@/components/dashboard/KnowledgeGraphTab";
 import DetailsDrawer from "@/components/dashboard/DetailsDrawer";
-import { VideoBackground } from "@/components/ui";
+import { UnderwaterCanvas } from "@/components/ui";
 import { Share2 } from "lucide-react";
 
 import { NodeDetailData } from "@/components/dashboard/DetailsDrawer";
@@ -90,11 +90,8 @@ export default function DashboardPage() {
 
     return (
       <div className="relative flex-1 flex flex-col items-center justify-center p-6 space-y-6 min-h-[600px] bg-slate-950 overflow-hidden">
-        <VideoBackground
-          src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260622_204221_5339e40b-e73d-4ab0-9c65-79c18c66fd50.mp4"
-          objectPosition="70% center"
-          className="fixed inset-0 h-full w-full object-cover opacity-35 pointer-events-none z-0"
-        />
+        <UnderwaterCanvas />
+        <div className="fixed inset-0 bg-slate-950/65 backdrop-blur-[1px] pointer-events-none z-0" />
         <div className="relative z-10 flex flex-col items-center justify-center space-y-6 w-full">
           <div className="relative flex items-center justify-center">
             <div className="h-16 w-16 animate-spin rounded-full border-4 border-blue-500/25 border-t-blue-500" />
@@ -141,11 +138,8 @@ export default function DashboardPage() {
   if (error || (job && job.status === "FAILED") || !job) {
     return (
       <div className="relative flex-1 flex flex-col items-center justify-center min-h-[600px] space-y-4 px-4 bg-slate-950 overflow-hidden">
-        <VideoBackground
-          src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260622_204221_5339e40b-e73d-4ab0-9c65-79c18c66fd50.mp4"
-          objectPosition="70% center"
-          className="fixed inset-0 h-full w-full object-cover opacity-35 pointer-events-none z-0"
-        />
+        <UnderwaterCanvas />
+        <div className="fixed inset-0 bg-slate-950/65 backdrop-blur-[1px] pointer-events-none z-0" />
         <div className="relative z-10 flex flex-col items-center justify-center space-y-4">
           <div className="flex h-12 w-12 items-center justify-center rounded-full bg-red-500/10 text-red-400 border border-red-500/20">
             <AlertCircle className="h-6 w-6" />
@@ -212,11 +206,8 @@ export default function DashboardPage() {
 
   return (
     <div className="relative flex-1 flex flex-col lg:flex-row bg-slate-950/85 text-slate-100 min-h-screen overflow-hidden">
-      <VideoBackground
-        src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260622_204221_5339e40b-e73d-4ab0-9c65-79c18c66fd50.mp4"
-        objectPosition="70% center"
-        className="fixed inset-0 h-full w-full object-cover opacity-35 pointer-events-none z-0"
-      />
+      <UnderwaterCanvas />
+      <div className="fixed inset-0 bg-slate-950/70 backdrop-blur-[1px] pointer-events-none z-0" />
       <div className="relative z-10 flex-1 flex flex-col lg:flex-row w-full min-h-screen">
         {/* Left Sidebar Filters */}
         <SidebarFilters
