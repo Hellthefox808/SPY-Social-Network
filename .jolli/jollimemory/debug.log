@@ -1,0 +1,171 @@
+[2026-07-21T14:22:22.485Z] INFO  [StorageFactory] Storage mode: dual-write (primary=orphan, shadow=folder)
+[2026-07-21T14:22:22.503Z] ERROR [initialLoad] Failed to load panels {"code":128,"killed":false,"signal":null,"cmd":"git rev-parse HEAD","stdout":"HEAD\n","stderr":"fatal: ambiguous argument 'HEAD': unknown revision or path not in the working tree.\nUse '--' to separate paths from revisions, like this:\n'git <command> [<revision>...] -- [<file>...]'\n"}
+[2026-07-21T14:22:22.580Z] INFO  [StorageFactory] StorageFactory.create: storageMode=dual-write, projectPath=c:\Users\ravir\Desktop\PROJECT\p1\SPY
+[2026-07-21T14:22:22.844Z] INFO  [StorageFactory] Storage mode: dual-write (primary=orphan, shadow=folder)
+[2026-07-21T14:22:23.038Z] WARN  [SummaryStore] loadIndex: index.json unreadable from jb (fresh repo or backend read failed)
+[2026-07-21T14:22:23.064Z] INFO  [SchemaV5Migration] Storage backend not initialized yet — skipping schema v5 migration (no data to migrate)
+[2026-07-21T14:22:23.064Z] INFO  [activate] Schema v5 migration: alreadyDone=false fresh=true migrated=0 skipped=0
+[2026-07-21T14:22:23.066Z] INFO  [SidebarWebviewProvider] pushCommits: 0 item(s), mode=empty
+[2026-07-21T14:22:23.852Z] INFO  [SessionTracker] Config saved to C:\Users\ravir\.jolli\jollimemory
+[2026-07-21T14:22:24.050Z] INFO  [SidebarWebviewProvider] pushMemories: 0 item(s)
+[2026-07-21T14:22:24.056Z] INFO  [SidebarWebviewProvider] pushCommits: 0 item(s), mode=empty
+[2026-07-21T14:22:24.608Z] WARN  [ReadStorageResolver] createReadStorage: folder lacks index.json — falling back to orphan branch (migration incomplete, or folder wiped)
+[2026-07-21T14:22:24.622Z] INFO  [DispatchScripts] Wrote resolve-dist-path, run-hook, and run-cli scripts to C:\Users\ravir\.jolli\jollimemory
+[2026-07-21T14:22:24.760Z] INFO  [DistPathWriter] Wrote dist-paths/antigravity-ide (version=0.99.8, distDir=c:\Users\ravir\.antigravity-ide\extensions\jolli.jollimemory-vscode-0.99.8-universal\dist)
+[2026-07-21T14:22:24.792Z] INFO  [SessionTracker] Config saved to C:\Users\ravir\.jolli\jollimemory
+[2026-07-21T14:22:24.820Z] WARN  [SummaryStore] loadIndex: index.json unreadable from $r (fresh repo or backend read failed)
+[2026-07-21T14:22:24.988Z] INFO  [SidebarWebviewProvider] pushMemories: 0 item(s)
+[2026-07-21T14:22:25.059Z] INFO  [Installer] Checking Jolli Memory status
+[2026-07-21T14:22:25.077Z] INFO  [plans] detectPlans found 0 plans (0 in registry)
+[2026-07-21T14:22:25.077Z] INFO  [notes] detectNotes found 0 notes (0 in registry)
+[2026-07-21T14:22:25.077Z] INFO  [references] detectReferences(*) found 0 (0 in registry)
+[2026-07-21T14:22:25.098Z] INFO  [SkillInstaller] Wrote SKILL.md (revision 1) to C:\Users\ravir\Desktop\PROJECT\p1\SPY\.claude\skills\jolli-recall\SKILL.md
+[2026-07-21T14:22:25.102Z] INFO  [SkillInstaller] Wrote SKILL.md (revision 1) to C:\Users\ravir\Desktop\PROJECT\p1\SPY\.claude\skills\jolli-search\SKILL.md
+[2026-07-21T14:22:25.106Z] INFO  [SkillInstaller] Wrote SKILL.md (revision 1) to C:\Users\ravir\Desktop\PROJECT\p1\SPY\.claude\skills\jolli-pr\SKILL.md
+[2026-07-21T14:22:25.109Z] INFO  [SkillInstaller] Wrote SKILL.md (revision -1) to C:\Users\ravir\Desktop\PROJECT\p1\SPY\.claude\skills\jolli-local-run\SKILL.md
+[2026-07-21T14:22:25.113Z] INFO  [SkillInstaller] Wrote SKILL.md (revision 1) to C:\Users\ravir\Desktop\PROJECT\p1\SPY\.claude\skills\jolli\SKILL.md
+[2026-07-21T14:22:25.119Z] INFO  [SkillInstaller] Wrote SKILL.md (revision 1) to C:\Users\ravir\Desktop\PROJECT\p1\SPY\.agents\skills\jolli-recall\SKILL.md
+[2026-07-21T14:22:25.122Z] INFO  [SkillInstaller] Wrote SKILL.md (revision 1) to C:\Users\ravir\Desktop\PROJECT\p1\SPY\.agents\skills\jolli-search\SKILL.md
+[2026-07-21T14:22:25.126Z] INFO  [SkillInstaller] Wrote SKILL.md (revision 1) to C:\Users\ravir\Desktop\PROJECT\p1\SPY\.agents\skills\jolli-pr\SKILL.md
+[2026-07-21T14:22:25.139Z] INFO  [SkillInstaller] Wrote SKILL.md (revision -1) to C:\Users\ravir\Desktop\PROJECT\p1\SPY\.agents\skills\jolli-local-run\SKILL.md
+[2026-07-21T14:22:25.147Z] INFO  [SkillInstaller] Wrote SKILL.md (revision 1) to C:\Users\ravir\Desktop\PROJECT\p1\SPY\.agents\skills\jolli\SKILL.md
+[2026-07-21T14:22:25.329Z] INFO  [GitExclude] Updated C:\Users\ravir\Desktop\PROJECT\p1\SPY\.git\info\exclude with 12 Jolli skill exclude paths
+[2026-07-21T14:22:25.334Z] INFO  [McpRegistration] Registered MCP server in C:\Users\ravir\Desktop\PROJECT\p1\SPY\.mcp.json
+[2026-07-21T14:22:25.344Z] INFO  [JsonMcpWriter] Registered MCP server in C:\Users\ravir\Desktop\PROJECT\p1\SPY\.cursor\mcp.json
+[2026-07-21T14:22:25.360Z] INFO  [JsonMcpWriter] Registered MCP server in C:\Users\ravir\.gemini\settings.json
+[2026-07-21T14:22:25.365Z] INFO  [CodexTomlWriter] Registered Codex MCP server in C:\Users\ravir\.codex\config.toml
+[2026-07-21T14:22:25.368Z] INFO  [JsonMcpWriter] Registered MCP server in C:\Users\ravir\.copilot\mcp-config.json
+[2026-07-21T14:22:25.374Z] INFO  [JsonMcpWriter] Registered MCP server in C:\Users\ravir\AppData\Roaming\Code\User\mcp.json
+[2026-07-21T14:22:25.381Z] INFO  [GitHookInstaller] Git post-commit hook installed
+[2026-07-21T14:22:25.384Z] INFO  [GitHookInstaller] Git post-rewrite hook installed
+[2026-07-21T14:22:25.390Z] INFO  [GitHookInstaller] Git prepare-commit-msg hook installed
+[2026-07-21T14:22:25.398Z] INFO  [GitHookInstaller] Git post-merge hook installed
+[2026-07-21T14:22:25.404Z] INFO  [GitHookInstaller] Git pre-push hook installed
+[2026-07-21T14:22:25.408Z] INFO  [SessionTracker] Config saved to C:\Users\ravir\.jolli\jollimemory
+[2026-07-21T14:22:25.408Z] INFO  [Installer] Codex CLI detected — enabled Codex session discovery
+[2026-07-21T14:22:25.410Z] INFO  [GeminiHookInstaller] Gemini AfterAgent hook installed
+[2026-07-21T14:22:25.415Z] INFO  [SessionTracker] Config saved to C:\Users\ravir\.jolli\jollimemory
+[2026-07-21T14:22:25.415Z] INFO  [Installer] Gemini CLI detected — enabled Gemini session tracking
+[2026-07-21T14:22:25.419Z] INFO  [SessionTracker] Config saved to C:\Users\ravir\.jolli\jollimemory
+[2026-07-21T14:22:25.419Z] INFO  [Installer] Cursor detected — enabled Cursor Composer session discovery
+[2026-07-21T14:22:25.423Z] INFO  [SessionTracker] Config saved to C:\Users\ravir\.jolli\jollimemory
+[2026-07-21T14:22:25.423Z] INFO  [Installer] GitHub Copilot detected (CLI=true, Chat=true) — enabled session discovery
+[2026-07-21T14:22:25.424Z] INFO  [Installer] Skipping v5 migration on vscode-extension source — Extension.ts owns it with UI
+[2026-07-21T14:22:25.424Z] INFO  [Installer] Installation complete
+[2026-07-21T14:22:25.425Z] INFO  [Installer] Checking Jolli Memory status
+[2026-07-21T14:22:25.495Z] INFO  [Installer] Status: enabled=false, claude=false, git=false, geminiHook=false, worktreeHooks=false, sessions=2, summaries=0, codex=true/undefined, gemini=true/undefined, enabledWorktrees=0, opencode=false/undefined, cursor=true/undefined, copilot=true/undefined, copilotChat=true
+[2026-07-21T14:22:25.737Z] INFO  [Installer] Status: enabled=false, claude=false, git=false, geminiHook=false, worktreeHooks=false, sessions=2, summaries=0, codex=true/true, gemini=true/true, enabledWorktrees=1, opencode=false/undefined, cursor=true/true, copilot=true/undefined, copilotChat=true
+[2026-07-21T14:22:25.966Z] INFO  [Installer] Status: enabled=true, claude=true, git=true, geminiHook=true, worktreeHooks=true, sessions=2, summaries=0, codex=true/true, gemini=true/true, enabledWorktrees=1, opencode=false/undefined, cursor=true/true, copilot=true/true, copilotChat=true
+[2026-07-21T14:22:25.969Z] INFO  [Installer] Checking Jolli Memory status
+[2026-07-21T14:22:26.510Z] INFO  [Installer] Status: enabled=true, claude=true, git=true, geminiHook=true, worktreeHooks=true, sessions=2, summaries=0, codex=true/true, gemini=true/true, enabledWorktrees=1, opencode=false/undefined, cursor=true/true, copilot=true/true, copilotChat=true
+[2026-07-21T14:22:26.512Z] INFO  [Installer] Checking Jolli Memory status
+[2026-07-21T14:22:29.095Z] INFO  [Installer] Status: enabled=true, claude=true, git=true, geminiHook=true, worktreeHooks=true, sessions=2, summaries=0, codex=true/true, gemini=true/true, enabledWorktrees=1, opencode=false/undefined, cursor=true/true, copilot=true/true, copilotChat=true
+[2026-07-21T14:22:58.700Z] INFO  [SidebarWebviewProvider] pushMemories: 0 item(s)
+[2026-07-21T14:22:58.706Z] INFO  [SidebarWebviewProvider] pushCommits: 0 item(s), mode=empty
+[2026-07-21T14:29:05.624Z] INFO  [deactivate] Jolli Memory extension deactivating
+[2026-07-21T14:29:13.031Z] INFO  [activate] Activating JolliMemory extension {"workspaceRoot":"c:\\Users\\ravir\\Desktop\\PROJECT\\p1\\SPY","extensionPath":"c:\\Users\\ravir\\.antigravity-ide\\extensions\\jolli.jollimemory-vscode-0.99.8-universal"}
+[2026-07-21T14:29:13.544Z] INFO  [initialLoad] Loading all panels
+[2026-07-21T14:29:16.917Z] INFO  [StorageFactory] StorageFactory.create: storageMode=dual-write, projectPath=c:\Users\ravir\Desktop\PROJECT\p1\SPY
+[2026-07-21T14:29:17.194Z] INFO  [StorageFactory] Storage mode: dual-write (primary=orphan, shadow=folder)
+[2026-07-21T14:29:17.195Z] INFO  [Installer] Checking Jolli Memory status
+[2026-07-21T14:29:17.205Z] INFO  [Installer] Checking Jolli Memory status
+[2026-07-21T14:29:17.372Z] INFO  [plans] detectPlans found 0 plans (0 in registry)
+[2026-07-21T14:29:17.372Z] INFO  [notes] detectNotes found 0 notes (0 in registry)
+[2026-07-21T14:29:17.372Z] INFO  [references] detectReferences(*) found 0 (0 in registry)
+[2026-07-21T14:29:17.745Z] WARN  [SummaryStore] loadIndex: index.json unreadable from jb (fresh repo or backend read failed)
+[2026-07-21T14:29:18.521Z] INFO  [StorageFactory] StorageFactory.create: storageMode=dual-write, projectPath=c:\Users\ravir\Desktop\PROJECT\p1\SPY
+[2026-07-21T14:29:18.813Z] INFO  [StorageFactory] Storage mode: dual-write (primary=orphan, shadow=folder)
+[2026-07-21T14:29:19.054Z] INFO  [StorageFactory] StorageFactory.create: storageMode=dual-write, projectPath=c:\Users\ravir\Desktop\PROJECT\p1\SPY
+[2026-07-21T14:29:19.401Z] INFO  [StorageFactory] Storage mode: dual-write (primary=orphan, shadow=folder)
+[2026-07-21T14:29:19.430Z] ERROR [initialLoad] Failed to load panels {"code":128,"killed":false,"signal":null,"cmd":"git rev-parse HEAD","stdout":"HEAD\n","stderr":"fatal: ambiguous argument 'HEAD': unknown revision or path not in the working tree.\nUse '--' to separate paths from revisions, like this:\n'git <command> [<revision>...] -- [<file>...]'\n"}
+[2026-07-21T14:29:19.573Z] INFO  [StorageFactory] StorageFactory.create: storageMode=dual-write, projectPath=c:\Users\ravir\Desktop\PROJECT\p1\SPY
+[2026-07-21T14:29:19.924Z] INFO  [StorageFactory] Storage mode: dual-write (primary=orphan, shadow=folder)
+[2026-07-21T14:29:19.980Z] INFO  [SchemaV5Migration] Storage backend not initialized yet — skipping schema v5 migration (no data to migrate)
+[2026-07-21T14:29:19.980Z] INFO  [activate] Schema v5 migration: alreadyDone=false fresh=true migrated=0 skipped=0
+[2026-07-21T14:29:20.392Z] WARN  [SummaryStore] loadIndex: index.json unreadable from jb (fresh repo or backend read failed)
+[2026-07-21T14:29:21.391Z] INFO  [Installer] Status: enabled=true, claude=true, git=true, geminiHook=true, worktreeHooks=true, sessions=2, summaries=0, codex=true/true, gemini=true/true, enabledWorktrees=1, opencode=false/undefined, cursor=true/true, copilot=true/true, copilotChat=true
+[2026-07-21T14:29:21.456Z] INFO  [Installer] Status: enabled=true, claude=true, git=true, geminiHook=true, worktreeHooks=true, sessions=2, summaries=0, codex=true/true, gemini=true/true, enabledWorktrees=1, opencode=false/undefined, cursor=true/true, copilot=true/true, copilotChat=true
+[2026-07-21T14:29:21.465Z] INFO  [Installer] Checking Jolli Memory status
+[2026-07-21T14:29:22.019Z] INFO  [Installer] Status: enabled=true, claude=true, git=true, geminiHook=true, worktreeHooks=true, sessions=2, summaries=0, codex=true/true, gemini=true/true, enabledWorktrees=1, opencode=false/undefined, cursor=true/true, copilot=true/true, copilotChat=true
+[2026-07-21T14:29:22.021Z] INFO  [Installer] Checking Jolli Memory status
+[2026-07-21T14:29:22.493Z] INFO  [Installer] Status: enabled=true, claude=true, git=true, geminiHook=true, worktreeHooks=true, sessions=2, summaries=0, codex=true/true, gemini=true/true, enabledWorktrees=1, opencode=false/undefined, cursor=true/true, copilot=true/true, copilotChat=true
+[2026-07-21T17:14:01.758Z] INFO  [deactivate] Jolli Memory extension deactivating
+[2026-07-21T17:14:13.587Z] INFO  [activate] Activating JolliMemory extension {"workspaceRoot":"c:\\Users\\ravir\\Desktop\\PROJECT\\p1\\SPY","extensionPath":"c:\\Users\\ravir\\.antigravity-ide\\extensions\\jolli.jollimemory-vscode-0.99.8-universal"}
+[2026-07-21T17:14:14.082Z] INFO  [initialLoad] Loading all panels
+[2026-07-21T17:14:16.099Z] INFO  [StorageFactory] StorageFactory.create: storageMode=dual-write, projectPath=c:\Users\ravir\Desktop\PROJECT\p1\SPY
+[2026-07-21T17:14:16.860Z] INFO  [StorageFactory] Storage mode: dual-write (primary=orphan, shadow=folder)
+[2026-07-21T17:14:16.860Z] INFO  [Installer] Checking Jolli Memory status
+[2026-07-21T17:14:16.875Z] INFO  [Installer] Checking Jolli Memory status
+[2026-07-21T17:14:16.891Z] INFO  [plans] detectPlans found 0 plans (0 in registry)
+[2026-07-21T17:14:16.891Z] INFO  [notes] detectNotes found 0 notes (0 in registry)
+[2026-07-21T17:14:16.891Z] INFO  [references] detectReferences(*) found 0 (0 in registry)
+[2026-07-21T17:14:19.085Z] WARN  [SummaryStore] loadIndex: index.json unreadable from jb (fresh repo or backend read failed)
+[2026-07-21T17:14:23.665Z] ERROR [initialLoad] Failed to load panels {"code":128,"killed":false,"signal":null,"cmd":"git rev-parse HEAD","stdout":"HEAD\n","stderr":"fatal: ambiguous argument 'HEAD': unknown revision or path not in the working tree.\nUse '--' to separate paths from revisions, like this:\n'git <command> [<revision>...] -- [<file>...]'\n"}
+[2026-07-21T17:14:27.562Z] INFO  [StorageFactory] StorageFactory.create: storageMode=dual-write, projectPath=c:\Users\ravir\Desktop\PROJECT\p1\SPY
+[2026-07-21T17:14:27.849Z] INFO  [StorageFactory] Storage mode: dual-write (primary=orphan, shadow=folder)
+[2026-07-21T17:14:28.626Z] INFO  [StorageFactory] StorageFactory.create: storageMode=dual-write, projectPath=c:\Users\ravir\Desktop\PROJECT\p1\SPY
+[2026-07-21T17:14:28.906Z] INFO  [StorageFactory] Storage mode: dual-write (primary=orphan, shadow=folder)
+[2026-07-21T17:14:29.115Z] WARN  [SummaryStore] loadIndex: index.json unreadable from jb (fresh repo or backend read failed)
+[2026-07-21T17:14:29.148Z] INFO  [StorageFactory] StorageFactory.create: storageMode=dual-write, projectPath=c:\Users\ravir\Desktop\PROJECT\p1\SPY
+[2026-07-21T17:14:29.434Z] INFO  [StorageFactory] Storage mode: dual-write (primary=orphan, shadow=folder)
+[2026-07-21T17:14:29.908Z] INFO  [SchemaV5Migration] Storage backend not initialized yet — skipping schema v5 migration (no data to migrate)
+[2026-07-21T17:14:29.908Z] INFO  [activate] Schema v5 migration: alreadyDone=false fresh=true migrated=0 skipped=0
+[2026-07-21T17:14:34.544Z] INFO  [Installer] Status: enabled=true, claude=true, git=true, geminiHook=true, worktreeHooks=true, sessions=2, summaries=0, codex=true/true, gemini=true/true, enabledWorktrees=1, opencode=false/undefined, cursor=true/true, copilot=true/true, copilotChat=true
+[2026-07-21T17:14:34.567Z] INFO  [Installer] Status: enabled=true, claude=true, git=true, geminiHook=true, worktreeHooks=true, sessions=2, summaries=0, codex=true/true, gemini=true/true, enabledWorktrees=1, opencode=false/undefined, cursor=true/true, copilot=true/true, copilotChat=true
+[2026-07-21T17:14:34.569Z] INFO  [Installer] Checking Jolli Memory status
+[2026-07-21T17:14:35.523Z] INFO  [Installer] Status: enabled=true, claude=true, git=true, geminiHook=true, worktreeHooks=true, sessions=2, summaries=0, codex=true/true, gemini=true/true, enabledWorktrees=1, opencode=false/undefined, cursor=true/true, copilot=true/true, copilotChat=true
+[2026-07-21T17:14:35.525Z] INFO  [Installer] Checking Jolli Memory status
+[2026-07-21T17:14:36.157Z] INFO  [Installer] Status: enabled=true, claude=true, git=true, geminiHook=true, worktreeHooks=true, sessions=2, summaries=0, codex=true/true, gemini=true/true, enabledWorktrees=1, opencode=false/undefined, cursor=true/true, copilot=true/true, copilotChat=true
+[2026-07-21T17:16:10.053Z] INFO  [SessionStartHook] SessionStartHook invoked (cwd=C:\Users\ravir\Desktop\PROJECT\p1\SPY)
+[2026-07-21T17:16:10.187Z] INFO  [SessionStartHook] No briefing generated (skipped or timed out)
+[2026-07-21T17:16:09.565Z] INFO  [UpdateCheck] [trace=602e0247e9c1ea54e495c488c79a865c] Spawned detached update-check refresh (PID: 26604)
+[2026-07-21T17:16:09.570Z] INFO  [StorageFactory] [trace=602e0247e9c1ea54e495c488c79a865c] StorageFactory.create: storageMode=dual-write, projectPath=C:\Users\ravir\Desktop\PROJECT\p1\SPY
+[2026-07-21T17:16:10.214Z] INFO  [StorageFactory] [trace=602e0247e9c1ea54e495c488c79a865c] Storage mode: dual-write (primary=orphan, shadow=folder)
+[2026-07-21T17:16:10.228Z] INFO  [McpServer] [trace=602e0247e9c1ea54e495c488c79a865c] MCP server connected over stdio (cwd=C:\Users\ravir\Desktop\PROJECT\p1\SPY)
+[2026-07-21T17:16:18.568Z] INFO  [StorageFactory] [trace=eeda8ed87446fb9439eacb3ac3c9093b] StorageFactory.create: storageMode=dual-write, projectPath=C:\Users\ravir\Desktop\PROJECT\p1\SPY
+[2026-07-21T17:16:18.839Z] INFO  [SessionStartHook] SessionStartHook invoked (cwd=C:\Users\ravir\Desktop\PROJECT\p1\SPY)
+[2026-07-21T17:16:18.918Z] INFO  [SessionStartHook] No briefing generated (skipped or timed out)
+[2026-07-21T17:16:18.899Z] INFO  [StorageFactory] [trace=eeda8ed87446fb9439eacb3ac3c9093b] Storage mode: dual-write (primary=orphan, shadow=folder)
+[2026-07-21T17:16:18.911Z] INFO  [McpServer] [trace=eeda8ed87446fb9439eacb3ac3c9093b] MCP server connected over stdio (cwd=C:\Users\ravir\Desktop\PROJECT\p1\SPY)
+[2026-07-21T17:44:12.527Z] INFO  [deactivate] Jolli Memory extension deactivating
+[2026-07-21T17:44:24.613Z] INFO  [activate] Activating JolliMemory extension {"workspaceRoot":"c:\\Users\\ravir\\Desktop\\PROJECT\\p1\\SPY","extensionPath":"c:\\Users\\ravir\\.antigravity-ide\\extensions\\jolli.jollimemory-vscode-0.99.8-universal"}
+[2026-07-21T17:44:25.151Z] INFO  [initialLoad] Loading all panels
+[2026-07-21T17:44:26.675Z] INFO  [StorageFactory] StorageFactory.create: storageMode=dual-write, projectPath=c:\Users\ravir\Desktop\PROJECT\p1\SPY
+[2026-07-21T17:44:26.976Z] INFO  [StorageFactory] Storage mode: dual-write (primary=orphan, shadow=folder)
+[2026-07-21T17:44:26.977Z] INFO  [Installer] Checking Jolli Memory status
+[2026-07-21T17:44:26.988Z] INFO  [Installer] Checking Jolli Memory status
+[2026-07-21T17:44:27.168Z] INFO  [plans] detectPlans found 0 plans (0 in registry)
+[2026-07-21T17:44:27.168Z] INFO  [notes] detectNotes found 0 notes (0 in registry)
+[2026-07-21T17:44:27.169Z] INFO  [references] detectReferences(*) found 0 (0 in registry)
+[2026-07-21T17:44:27.576Z] WARN  [SummaryStore] loadIndex: index.json unreadable from jb (fresh repo or backend read failed)
+[2026-07-21T17:44:29.111Z] INFO  [StorageFactory] StorageFactory.create: storageMode=dual-write, projectPath=c:\Users\ravir\Desktop\PROJECT\p1\SPY
+[2026-07-21T17:44:30.292Z] INFO  [StorageFactory] Storage mode: dual-write (primary=orphan, shadow=folder)
+[2026-07-21T17:44:35.348Z] ERROR [initialLoad] Failed to load panels {"code":128,"killed":false,"signal":null,"cmd":"git rev-parse HEAD","stdout":"HEAD\n","stderr":"fatal: ambiguous argument 'HEAD': unknown revision or path not in the working tree.\nUse '--' to separate paths from revisions, like this:\n'git <command> [<revision>...] -- [<file>...]'\n"}
+[2026-07-21T17:44:40.079Z] INFO  [StorageFactory] StorageFactory.create: storageMode=dual-write, projectPath=c:\Users\ravir\Desktop\PROJECT\p1\SPY
+[2026-07-21T17:44:41.088Z] INFO  [StorageFactory] Storage mode: dual-write (primary=orphan, shadow=folder)
+[2026-07-21T17:44:41.097Z] INFO  [StorageFactory] StorageFactory.create: storageMode=dual-write, projectPath=c:\Users\ravir\Desktop\PROJECT\p1\SPY
+[2026-07-21T17:44:41.609Z] INFO  [StorageFactory] Storage mode: dual-write (primary=orphan, shadow=folder)
+[2026-07-21T17:44:41.946Z] WARN  [SummaryStore] loadIndex: index.json unreadable from jb (fresh repo or backend read failed)
+[2026-07-21T17:44:42.075Z] INFO  [SchemaV5Migration] Storage backend not initialized yet — skipping schema v5 migration (no data to migrate)
+[2026-07-21T17:44:42.075Z] INFO  [activate] Schema v5 migration: alreadyDone=false fresh=true migrated=0 skipped=0
+[2026-07-21T17:44:44.698Z] INFO  [Installer] Status: enabled=true, claude=true, git=true, geminiHook=true, worktreeHooks=true, sessions=2, summaries=0, codex=true/true, gemini=true/true, enabledWorktrees=1, opencode=false/undefined, cursor=true/true, copilot=true/true, copilotChat=true
+[2026-07-21T17:44:44.698Z] INFO  [Installer] Status: enabled=true, claude=true, git=true, geminiHook=true, worktreeHooks=true, sessions=2, summaries=0, codex=true/true, gemini=true/true, enabledWorktrees=1, opencode=false/undefined, cursor=true/true, copilot=true/true, copilotChat=true
+[2026-07-21T17:44:44.817Z] INFO  [Installer] Checking Jolli Memory status
+[2026-07-21T17:44:46.998Z] INFO  [Installer] Status: enabled=true, claude=true, git=true, geminiHook=true, worktreeHooks=true, sessions=2, summaries=0, codex=true/true, gemini=true/true, enabledWorktrees=1, opencode=false/undefined, cursor=true/true, copilot=true/true, copilotChat=true
+[2026-07-21T17:44:47.080Z] INFO  [Installer] Checking Jolli Memory status
+[2026-07-21T17:44:48.266Z] INFO  [Installer] Status: enabled=true, claude=true, git=true, geminiHook=true, worktreeHooks=true, sessions=2, summaries=0, codex=true/true, gemini=true/true, enabledWorktrees=1, opencode=false/undefined, cursor=true/true, copilot=true/true, copilotChat=true
+[2026-07-21T17:46:14.931Z] INFO  [StorageFactory] [trace=e8c2dbbb0f2b3fb30586301ee56a9ec3] StorageFactory.create: storageMode=dual-write, projectPath=C:\Users\ravir\Desktop\PROJECT\p1\SPY
+[2026-07-21T17:46:15.541Z] INFO  [StorageFactory] [trace=e8c2dbbb0f2b3fb30586301ee56a9ec3] Storage mode: dual-write (primary=orphan, shadow=folder)
+[2026-07-21T17:46:15.554Z] INFO  [McpServer] [trace=e8c2dbbb0f2b3fb30586301ee56a9ec3] MCP server connected over stdio (cwd=C:\Users\ravir\Desktop\PROJECT\p1\SPY)
+[2026-07-21T17:46:15.660Z] INFO  [SessionStartHook] SessionStartHook invoked (cwd=C:\Users\ravir\Desktop\PROJECT\p1\SPY)
+[2026-07-21T17:46:15.763Z] INFO  [SessionStartHook] No briefing generated (skipped or timed out)
+[2026-07-21T17:46:23.836Z] INFO  [StorageFactory] [trace=20e63372f02ca805ae96d47df730c77a] StorageFactory.create: storageMode=dual-write, projectPath=C:\Users\ravir\Desktop\PROJECT\p1\SPY
+[2026-07-21T17:46:24.157Z] INFO  [StorageFactory] [trace=20e63372f02ca805ae96d47df730c77a] Storage mode: dual-write (primary=orphan, shadow=folder)
+[2026-07-21T17:46:24.167Z] INFO  [McpServer] [trace=20e63372f02ca805ae96d47df730c77a] MCP server connected over stdio (cwd=C:\Users\ravir\Desktop\PROJECT\p1\SPY)
+[2026-07-21T17:46:24.111Z] INFO  [SessionStartHook] SessionStartHook invoked (cwd=C:\Users\ravir\Desktop\PROJECT\p1\SPY)
+[2026-07-21T17:46:24.182Z] INFO  [SessionStartHook] No briefing generated (skipped or timed out)
+[2026-07-21T17:53:50.217Z] INFO  [SidebarWebviewProvider] pushMemories: 0 item(s)
+[2026-07-21T17:53:50.231Z] INFO  [SidebarWebviewProvider] pushCommits: 0 item(s), mode=empty
+[2026-07-21T17:53:50.522Z] WARN  [ReadStorageResolver] createReadStorage: folder lacks index.json — falling back to orphan branch (migration incomplete, or folder wiped)
+[2026-07-21T17:53:50.615Z] WARN  [SummaryStore] loadIndex: index.json unreadable from $r (fresh repo or backend read failed)
+[2026-07-21T17:53:50.706Z] INFO  [SidebarWebviewProvider] pushMemories: 0 item(s)

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Connective edge links with nodes -->
+  <circle cx="6" cy="18" r="3" stroke="#3b82f6" stroke-width="2" />
+  <circle cx="18" cy="6" r="3" stroke="#8b5cf6" stroke-width="2" />
+  <!-- Curve connecting them -->
+  <path d="M8.5 15.5 C 11 13, 13 11, 15.5 8.5" stroke="currentColor" stroke-width="2" />
+  <!-- Dynamic pulse arrow -->
+  <path d="M12 12 L14 10.5 L13 13.5 Z" fill="currentColor" />
+</svg>

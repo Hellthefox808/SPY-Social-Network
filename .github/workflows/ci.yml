@@ -1,0 +1,40 @@
+name: CI & Quality Audit Pipeline
+
+on:
+  push:
+    branches: [ main, master, develop ]
+  pull_request:
+    branches: [ main, master, develop ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Codebase
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js Environment
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Generate Prisma Client
+        run: npx prisma generate
+
+      - name: Validate Prisma Schema
+        run: npx prisma validate
+
+      - name: Type Check (TypeScript)
+        run: npx tsc --noEmit
+
+      - name: Build Next.js Application
+        run: npm run build
+        env:
+          NODE_ENV: production
+          DATABASE_URL: "postgresql://postgres:postgres@localhost:5432/spy_db"
+          SESSION_SECRET: "ci_pipeline_test_secret_key_1234567890"

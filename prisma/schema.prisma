@@ -1,0 +1,177 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  password  String
+  name      String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model AnalysisJob {
+  id               String         @id @default(uuid())
+  inputUrl         String
+  normalizedUrl    String
+  detectedPlatform String
+  status           String
+  createdAt        DateTime       @default(now())
+  completedAt      DateTime?
+  errorMessage     String?
+  profiles         Profile[]
+  entities         Entity[]
+  locations        Location[]
+  edges            Edge[]
+  evidenceItems    EvidenceItem[]
+  exports          Export[]
+  metrics          JobMetrics?
+
+  @@index([status])
+  @@index([createdAt])
+  @@index([detectedPlatform])
+}
+
+model Profile {
+  id             String      @id @default(uuid())
+  jobId          String
+  job            AnalysisJob @relation(fields: [jobId], references: [id], onDelete: Cascade)
+  platform       String
+  handle         String?
+  displayName    String?
+  avatarUrl      String?
+  bio            String?
+  website        String?
+  followersCount Int?
+  followingCount Int?
+  postsCount     Int?
+  locationText   String?
+  sourceUrl      String
+
+  @@index([jobId])
+  @@index([handle])
+}
+
+model Entity {
+  id          String         @id @default(uuid())
+  jobId       String
+  job         AnalysisJob    @relation(fields: [jobId], references: [id], onDelete: Cascade)
+  entityType  String
+  name        String
+  platform    String?
+  externalUrl String?
+  confidence  Float
+  locations   Location[]
+  evidence    EvidenceItem[]
+
+  @@index([jobId])
+  @@index([entityType])
+}
+
+model Location {
+  id           String         @id @default(uuid())
+  entityId     String?
+  entity       Entity?        @relation(fields: [entityId], references: [id], onDelete: SetNull)
+  jobId        String
+  job          AnalysisJob    @relation(fields: [jobId], references: [id], onDelete: Cascade)
+  label        String
+  city         String?
+  state        String?
+  country      String?
+  lat          Float
+  lng          Float
+  locationType String
+  confidence   Float
+  sourceUrl    String
+  evidenceText String?
+  evidence     EvidenceItem[]
+
+  @@index([jobId])
+  @@index([locationType])
+  @@index([confidence])
+}
+
+model Edge {
+  id             String         @id @default(uuid())
+  jobId          String
+  job            AnalysisJob    @relation(fields: [jobId], references: [id], onDelete: Cascade)
+  sourceEntityId String
+  targetEntityId String
+  relationType   String
+  weight         Float
+  confidence     Float
+  sourceUrl      String?
+  evidenceText   String?
+  evidence       EvidenceItem[]
+
+  @@index([jobId])
+  @@index([relationType])
+}
+
+model EvidenceItem {
+  id               String       @id @default(uuid())
+  jobId            String
+  job              AnalysisJob  @relation(fields: [jobId], references: [id], onDelete: Cascade)
+  entityId         String?
+  entity           Entity?      @relation(fields: [entityId], references: [id], onDelete: SetNull)
+  edgeId           String?
+  edge             Edge?        @relation(fields: [edgeId], references: [id], onDelete: SetNull)
+  locationId       String?
+  location         Location?    @relation(fields: [locationId], references: [id], onDelete: SetNull)
+  evidenceType     String
+  sourceUrl        String
+  snippet          String?
+  extractionMethod String
+  confidence       Float
+  createdAt        DateTime     @default(now())
+
+  @@index([jobId])
+  @@index([evidenceType])
+}
+
+model Export {
+  id         String      @id @default(uuid())
+  jobId      String
+  job        AnalysisJob @relation(fields: [jobId], references: [id], onDelete: Cascade)
+  exportType String
+  fileUrl    String
+  createdAt  DateTime    @default(now())
+
+  @@index([jobId])
+}
+
+model AuditLog {
+  id        String   @id @default(uuid())
+  userId    String?
+  action    String
+  resource  String
+  details   String?
+  ipAddress String?
+  createdAt DateTime @default(now())
+
+  @@index([userId])
+  @@index([action])
+  @@index([createdAt])
+}
+
+model JobMetrics {
+  id            String      @id @default(uuid())
+  jobId         String      @unique
+  job           AnalysisJob @relation(fields: [jobId], references: [id], onDelete: Cascade)
+  fetchMs       Int         @default(0)
+  geocodeMs     Int         @default(0)
+  transformMs   Int         @default(0)
+  totalMs       Int         @default(0)
+  retryCount    Int         @default(0)
+  entitiesCount Int         @default(0)
+  locationsCount Int        @default(0)
+  edgesCount    Int         @default(0)
+  createdAt     DateTime    @default(now())
+}
+

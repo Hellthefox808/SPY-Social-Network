@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SocialGraph Atlas - Product Pitch & Technology Presentation</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="presentation.css">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .mono {
+      font-family: 'Fira Code', monospace;
+    }
+  </style>
+</head>
+<body class="bg-[#020617] text-slate-100 min-h-screen relative flex flex-col justify-between select-none">
+
+  <!-- Header Branding -->
+  <header class="p-6 flex items-center justify-between z-50">
+    <div class="flex items-center gap-3">
+      <svg class="h-8 w-8 text-blue-500" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="50" r="40" stroke="currentColor" stroke-width="4" />
+        <path d="M30 40 L50 65 L70 35 L50 45 Z" fill="none" stroke="#8b5cf6" stroke-width="3" />
+        <circle cx="30" cy="40" r="5" fill="#8b5cf6" />
+        <circle cx="50" cy="65" r="5" fill="#10b981" />
+        <circle cx="70" cy="35" r="5" fill="#3b82f6" />
+      </svg>
+      <div>
+        <h1 class="text-sm font-extrabold tracking-widest uppercase">SocialGraph <span class="text-blue-400">Atlas</span></h1>
+        <p class="text-[9px] tracking-widest text-slate-500 uppercase">OSINT Intel Suite</p>
+      </div>
+    </div>
+    
+    <div class="flex items-center gap-2">
+      <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 pulsing-dot"></span>
+      <span class="text-xs text-slate-400 uppercase tracking-widest font-semibold">Live Simulation</span>
+    </div>
+  </header>
+
+  <!-- Main Slide Container -->
+  <main class="flex-1 relative w-full max-w-7xl mx-auto px-6 flex items-center justify-center overflow-hidden">
+    
+    <!-- SLIDE 1: Title Slide -->
+    <section class="slide active flex flex-col justify-center items-center text-center space-y-6 max-w-4xl">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-blue-500/30 bg-blue-500/10 text-xs font-semibold text-blue-300">
+        <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+        Next-Generation OSINT Mapping
+      </div>
+      <h2 class="text-5xl sm:text-7xl font-extrabold tracking-tight bg-gradient-to-r from-white via-slate-300 to-slate-500 bg-clip-text text-transparent">
+        Map Public Social Graphs
+      </h2>
+      <p class="text-base sm:text-lg text-slate-400 max-w-2xl">
+        An advanced intelligence interface utilizing platform adapters, geo-confidence parsing dictionary caches, and force-directed connection models.
+      </p>
+      
+      <div class="pt-6 flex gap-4">
+        <div class="px-4 py-2.5 rounded-xl border border-slate-800 bg-slate-900/40 text-xs font-semibold text-slate-300">
+          Press <kbd class="px-1.5 py-0.5 rounded bg-slate-800 text-[10px]">Right Arrow →</kbd> to Begin
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 2: Platform Adapters -->
+    <section class="slide flex flex-col justify-center space-y-8 w-full max-w-5xl">
+      <div class="space-y-2 text-center">
+        <h2 class="text-3xl font-bold bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">High-Speed Platform Adapters</h2>
+        <p class="text-sm text-slate-400">Scrapes, parses, and resolves public profile links and metadata tokens.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <div class="glass-panel p-6 rounded-2xl border border-slate-800/80 space-y-4 hover:border-blue-500/30 transition-all duration-300">
+          <div class="h-10 w-10 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-400 font-bold">GH</div>
+          <h3 class="font-bold text-white text-base">GitHub</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">Indexes bios, organizations, repositories, and recent commit signatures.</p>
+        </div>
+        <div class="glass-panel p-6 rounded-2xl border border-slate-800/80 space-y-4 hover:border-violet-500/30 transition-all duration-300">
+          <div class="h-10 w-10 rounded-lg bg-violet-500/10 flex items-center justify-center text-violet-400 font-bold">RD</div>
+          <h3 class="font-bold text-white text-base">Reddit</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">Extracts public JSON endpoints, subreddits, and karma weights.</p>
+        </div>
+        <div class="glass-panel p-6 rounded-2xl border border-slate-800/80 space-y-4 hover:border-emerald-500/30 transition-all duration-300">
+          <div class="h-10 w-10 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-400 font-bold">WB</div>
+          <h3 class="font-bold text-white text-base">Generic Web</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">Scans metadata (OpenGraph), schema tags, and contact links.</p>
+        </div>
+        <div class="glass-panel p-6 rounded-2xl border border-slate-800/80 space-y-4 hover:border-rose-500/30 transition-all duration-300">
+          <div class="h-10 w-10 rounded-lg bg-rose-500/10 flex items-center justify-center text-rose-400 font-bold">SB</div>
+          <h3 class="font-bold text-white text-base">Sandbox Mode</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">Simulates X/Twitter, Instagram, LinkedIn, and YouTube graphs locally.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 3: Confidence Scoring Chart -->
+    <section class="slide flex flex-col justify-center space-y-6 w-full max-w-4xl">
+      <div class="space-y-2 text-center">
+        <h2 class="text-3xl font-bold bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent">Geo-Intelligence Confidence Engine</h2>
+        <p class="text-sm text-slate-400">Weighted scores based on location declaring source reliability.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <div class="glass-panel p-6 rounded-2xl h-80 flex items-center justify-center">
+          <canvas id="confidenceChart" class="w-full h-full"></canvas>
+        </div>
+        <div class="space-y-4">
+          <div class="flex items-start gap-3">
+            <span class="w-5 h-5 rounded bg-blue-500/20 text-blue-400 flex items-center justify-center font-bold text-xs">01</span>
+            <div>
+              <h4 class="font-bold text-white text-sm">Declared Location (0.95)</h4>
+              <p class="text-xs text-slate-400">Directly declared on profile. Highest confidence value.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="w-5 h-5 rounded bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-xs">02</span>
+            <div>
+              <h4 class="font-bold text-white text-sm">Geo Tagged Snippet (0.90)</h4>
+              <p class="text-xs text-slate-400">Verifiable geolocation header coordinates from posts.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="w-5 h-5 rounded bg-violet-500/20 text-violet-400 flex items-center justify-center font-bold text-xs">03</span>
+            <div>
+              <h4 class="font-bold text-white text-sm">Inferred &amp; Mentioned (0.40 - 0.60)</h4>
+              <p class="text-xs text-slate-400">Text-mentions or secondary organization headquarters matching.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 4: Mapped Visualizations -->
+    <section class="slide flex flex-col justify-center space-y-8 w-full max-w-5xl">
+      <div class="space-y-2 text-center">
+        <h2 class="text-3xl font-bold bg-gradient-to-r from-violet-400 to-blue-400 bg-clip-text text-transparent">Double-Visual Graph Overlays</h2>
+        <p class="text-sm text-slate-400">Interactive geographical mapping alongside relational node graphs.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Graphic 1: Map overlay simulation -->
+        <div class="glass-panel p-6 rounded-2xl border border-slate-800 space-y-3 relative overflow-hidden h-72">
+          <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.08),transparent_70%)]"></div>
+          <span class="px-2 py-0.5 rounded border border-blue-500/30 bg-blue-500/10 text-[9px] font-semibold text-blue-300 uppercase tracking-wider">
+            MapLibre GL Map View
+          </span>
+          <h3 class="font-bold text-white text-base">Interactive World Coordinate Map</h3>
+          <p class="text-xs text-slate-400">Renders geographic coordinates with curved path connectors between overlapping profiles, using custom CartoDB Dark Matter styles.</p>
+          
+          <!-- Mock Map Graphics -->
+          <div class="border border-slate-800 bg-[#0a0d16] rounded-lg p-3 h-28 flex items-center justify-center relative overflow-hidden">
+            <div class="absolute w-2 h-2 bg-blue-500 rounded-full animate-ping left-1/4 top-1/2"></div>
+            <div class="absolute w-2 h-2 bg-blue-500 rounded-full left-1/4 top-1/2"></div>
+            
+            <div class="absolute w-2 h-2 bg-emerald-500 rounded-full animate-ping right-1/3 top-1/3"></div>
+            <div class="absolute w-2 h-2 bg-emerald-500 rounded-full right-1/3 top-1/3"></div>
+            
+            <!-- Connector line -->
+            <svg class="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
+              <path d="M 80 56 Q 160 20 220 38" fill="none" stroke="rgba(139, 92, 246, 0.6)" stroke-width="1.5" stroke-dasharray="4 4" />
+            </svg>
+            <span class="text-[9px] text-slate-500 mono absolute bottom-2 right-2">Nominatim Live API Connected</span>
+          </div>
+        </div>
+
+        <!-- Graphic 2: Force directed node simulation -->
+        <div class="glass-panel p-6 rounded-2xl border border-slate-800 space-y-3 relative overflow-hidden h-72">
+          <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(139,92,246,0.08),transparent_70%)]"></div>
+          <span class="px-2 py-0.5 rounded border border-violet-500/30 bg-violet-500/10 text-[9px] font-semibold text-violet-300 uppercase tracking-wider">
+            SVG Force Network
+          </span>
+          <h3 class="font-bold text-white text-base">Spring Force Relation Network</h3>
+          <p class="text-xs text-slate-400">Interactive physics-based graph rendering node weights, sharing connections, and platform signatures. Fully drag-and-drop enabled.</p>
+          
+          <!-- Mock Graph Graphics -->
+          <div class="border border-slate-800 bg-[#0a0d16] rounded-lg p-3 h-28 flex items-center justify-center relative overflow-hidden">
+            <svg class="w-full h-full" viewBox="0 0 300 100">
+              <line x1="150" y1="50" x2="100" y2="25" stroke="#334155" stroke-width="1.5" />
+              <line x1="150" y1="50" x2="200" y2="35" stroke="#334155" stroke-width="1.5" />
+              <line x1="150" y1="50" x2="140" y2="80" stroke="#334155" stroke-width="1.5" />
+              
+              <!-- Nodes -->
+              <circle cx="150" cy="50" r="8" fill="#3b82f6" />
+              <circle cx="100" cy="25" r="5" fill="#8b5cf6" />
+              <circle cx="200" cy="35" r="6" fill="#10b981" />
+              <circle cx="140" cy="80" r="4" fill="#64748b" />
+            </svg>
+            <span class="text-[9px] text-slate-500 mono absolute bottom-2 right-2">Damped Spring Physics Sim</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 5: Compliance and Privacy -->
+    <section class="slide flex flex-col justify-center space-y-8 w-full max-w-4xl">
+      <div class="space-y-2 text-center">
+        <h2 class="text-3xl font-bold bg-gradient-to-r from-emerald-400 to-blue-400 bg-clip-text text-transparent">Compliance &amp; Traceability</h2>
+        <p class="text-sm text-slate-400">Strict governance ensuring ethical scraping practices.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="glass-panel p-6 rounded-2xl border border-slate-800 space-y-3">
+          <h3 class="font-bold text-white text-sm">Public-Only Scope</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">Only parses publicly declared metadata and static HTML page outputs. Never bypasses logins or credential walls.</p>
+        </div>
+        <div class="glass-panel p-6 rounded-2xl border border-slate-800 space-y-3">
+          <h3 class="font-bold text-white text-sm">Data Traceability</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">Every coordinate, connection link, and profile node binds directly to a matching sniffer evidence coordinate in the logs.</p>
+        </div>
+        <div class="glass-panel p-6 rounded-2xl border border-slate-800 space-y-3">
+          <h3 class="font-bold text-white text-sm">Takedown Request Controls</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">Integrated SQLite database removal protocols that trigger full graph node cascade deletions for secure compliance.</p>
+        </div>
+      </div>
+    </section>
+    
+  </main>
+
+  <!-- Slide Navigation Controls -->
+  <footer class="p-6 border-t border-slate-900 bg-slate-950/50 backdrop-blur z-50 flex items-center justify-between">
+    <div class="text-xs text-slate-500 uppercase tracking-widest font-semibold">
+      Slide <span id="currentSlideNum" class="text-slate-300">1</span> of <span id="totalSlidesNum" class="text-slate-300">5</span>
+    </div>
+    
+    <div class="flex gap-3">
+      <button onclick="prevSlide()" class="px-4 py-2 rounded-lg bg-slate-900 border border-slate-800 hover:bg-slate-800 text-xs font-semibold uppercase tracking-wider transition disabled:opacity-30" id="prevBtn" disabled>
+        Prev
+      </button>
+      <button onclick="nextSlide()" class="px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-500 text-xs font-semibold uppercase tracking-wider transition" id="nextBtn">
+        Next
+      </button>
+    </div>
+  </footer>
+
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    let currentSlide = 0;
+    
+    const currentSlideNum = document.getElementById('currentSlideNum');
+    const totalSlidesNum = document.getElementById('totalSlidesNum');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    
+    totalSlidesNum.innerText = slides.length;
+
+    function updateSlide() {
+      slides.forEach((slide, index) => {
+        slide.classList.remove('active', 'inactive-left');
+        if (index === currentSlide) {
+          slide.classList.add('active');
+        } else if (index < currentSlide) {
+          slide.classList.add('inactive-left');
+        }
+      });
+
+      // Update counters
+      currentSlideNum.innerText = currentSlide + 1;
+      
+      // Update Buttons
+      prevBtn.disabled = currentSlide === 0;
+      nextBtn.innerText = currentSlide === slides.length - 1 ? 'Finish' : 'Next';
+      
+      // Initialize charts when slide is active
+      if (currentSlide === 2) {
+        initConfidenceChart();
+      }
+    }
+
+    function nextSlide() {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateSlide();
+      } else {
+        alert('End of pitch presentation deck.');
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+      }
+    }
+
+    // Keyboard navigation
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ') {
+        nextSlide();
+      } else if (e.key === 'ArrowLeft') {
+        prevSlide();
+      }
+    });
+
+    // Chart.js Confidence chart rendering
+    let chartInstance = null;
+    function initConfidenceChart() {
+      const ctx = document.getElementById('confidenceChart').getContext('2d');
+      if (chartInstance) {
+        chartInstance.destroy();
+      }
+      
+      chartInstance = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['Declared Location', 'Geo Tagged Post', 'Company HQ', 'Text Mention', 'Inferred'],
+          datasets: [{
+            label: 'Confidence Weight',
+            data: [0.95, 0.90, 0.75, 0.60, 0.40],
+            backgroundColor: [
+              'rgba(16, 185, 129, 0.7)',
+              'rgba(59, 130, 246, 0.7)',
+              'rgba(139, 92, 246, 0.7)',
+              'rgba(245, 158, 11, 0.7)',
+              'rgba(239, 68, 68, 0.7)'
+            ],
+            borderColor: [
+              '#10b981',
+              '#3b82f6',
+              '#8b5cf6',
+              '#f59e0b',
+              '#ef4444'
+            ],
+            borderWidth: 1.5
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false }
+          },
+          scales: {
+            y: {
+              beginAtZero: true,
+              max: 1.0,
+              grid: { color: 'rgba(255,255,255,0.05)' },
+              ticks: { color: '#94a3b8', font: { family: 'Fira Code' } }
+            },
+            x: {
+              grid: { display: false },
+              ticks: { color: '#94a3b8', font: { size: 10 } }
+            }
+          }
+        }
+      });
+    }
+  </script>
+</body>
+</html>

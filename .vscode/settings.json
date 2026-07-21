@@ -1,0 +1,9 @@
+{
+  "css.lint.unknownAtRules": "ignore",
+  "scss.lint.unknownAtRules": "ignore",
+  "markdownlint.ignore": [
+    "**/.gemini/**"
+  ],
+  "truenorth.claudeCommand": "C:\\Users\\ravir\\.local\\bin\\claude.exe",
+  "python.languageServer": "None"
+}

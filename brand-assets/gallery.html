@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SocialGraph Atlas - Brand Showcase Gallery</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #020617;
+      color: #f1f5f9;
+    }
+    .mono {
+      font-family: 'Fira Code', monospace;
+    }
+    .glass {
+      background: rgba(15, 23, 42, 0.55);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .scrollbar-hide::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col md:flex-row overflow-x-hidden">
+
+  <!-- Left Sidebar Navigation -->
+  <aside class="w-full md:w-64 border-b md:border-b-0 md:border-r border-slate-900 bg-slate-950/60 p-6 flex flex-col justify-between flex-shrink-0">
+    <div class="space-y-8">
+      <!-- Title -->
+      <div class="flex items-center gap-2.5">
+        <svg class="h-8 w-8 text-blue-500" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="50" r="40" stroke="currentColor" stroke-width="4" />
+          <path d="M30 40 L50 65 L70 35 L50 45 Z" fill="none" stroke="#8b5cf6" stroke-width="3" />
+          <circle cx="30" cy="40" r="5" fill="#8b5cf6" />
+          <circle cx="50" cy="65" r="5" fill="#10b981" />
+          <circle cx="70" cy="35" r="5" fill="#3b82f6" />
+        </svg>
+        <div>
+          <h1 class="text-sm font-extrabold tracking-widest uppercase">SocialGraph</h1>
+          <p class="text-[9px] uppercase tracking-[0.25em] text-blue-400 font-bold">Atlas Brand Suite</p>
+        </div>
+      </div>
+
+      <!-- Navigation links -->
+      <nav class="flex flex-col gap-1.5 text-xs font-semibold text-slate-400">
+        <a href="#overview" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-900 hover:text-white transition">Overview</a>
+        <a href="#logos" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-900 hover:text-white transition">Logo Suite</a>
+        <a href="#tokens" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-900 hover:text-white transition">Design Tokens</a>
+        <a href="#cip" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-900 hover:text-white transition">Corporate Identity</a>
+        <a href="#presentation" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-900 hover:text-white transition">Slides Pitch</a>
+        <a href="#banners" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-900 hover:text-white transition">Banners &amp; Social</a>
+        <a href="#icons" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-900 hover:text-white transition">SVG Icons</a>
+      </nav>
+    </div>
+
+    <!-- Info Footer -->
+    <div class="mt-8 pt-6 border-t border-slate-900/60 text-[10px] text-slate-500 space-y-1">
+      <p>COMPLIANCE RATING: SECURE</p>
+      <p class="font-mono text-[9px]">v1.2.0 (FABEL-5)</p>
+    </div>
+  </aside>
+
+  <!-- Right Main Content Panel -->
+  <main class="flex-1 p-6 md:p-12 overflow-y-auto max-h-screen space-y-16">
+    
+    <!-- SECTION 1: Overview -->
+    <section id="overview" class="space-y-4">
+      <div class="flex items-center gap-2 px-3 py-1 rounded-full border border-blue-500/30 bg-blue-500/10 text-xs font-semibold text-blue-300 w-fit">
+        Fabricated Brand Identity System
+      </div>
+      <h2 class="text-3xl font-extrabold tracking-tight bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">
+        Design Intelligence Showcase
+      </h2>
+      <p class="text-sm text-slate-400 max-w-3xl leading-relaxed">
+        This gallery presents all deliverables generated for **SocialGraph Atlas** following the rules of the Enterprise Design Intelligence Suite (`fabel-5.md`). It contains the visual guidelines, HSL design tokens, AI-generated logos, print-ready corporate identity layouts (CIP), slides, marketing banners, and optimized SVG icons.
+      </p>
+    </section>
+
+    <hr class="border-slate-900" />
+
+    <!-- SECTION 2: Logo Suite -->
+    <section id="logos" class="space-y-6">
+      <h3 class="text-xl font-bold text-white">Logo Suite &amp; Vector Marks</h3>
+      <p class="text-xs text-slate-400">Generated variations including primary layout logos, minimal app icons, and scalable vector SVG coordinates.</p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Variant 1: Primary Logo -->
+        <div class="glass p-6 rounded-2xl border border-slate-800/80 flex flex-col justify-between items-center text-center space-y-4 h-72">
+          <span class="text-[9px] uppercase tracking-widest text-slate-500 font-bold">Primary Logo PNG</span>
+          <div class="w-32 h-32 bg-white rounded-lg flex items-center justify-center overflow-hidden p-2 shadow-inner">
+            <img src="logo_suite/logo_primary.png" alt="Primary Logo" class="max-w-full max-h-full object-contain">
+          </div>
+          <span class="text-[10px] text-slate-400 font-mono">logo_primary.png</span>
+        </div>
+
+        <!-- Variant 2: Minimalist Icon -->
+        <div class="glass p-6 rounded-2xl border border-slate-800/80 flex flex-col justify-between items-center text-center space-y-4 h-72">
+          <span class="text-[9px] uppercase tracking-widest text-slate-500 font-bold">App Icon Mark PNG</span>
+          <div class="w-32 h-32 bg-white rounded-lg flex items-center justify-center overflow-hidden p-2 shadow-inner">
+            <img src="logo_suite/logo_icon.png" alt="App Icon Logo" class="max-w-full max-h-full object-contain">
+          </div>
+          <span class="text-[10px] text-slate-400 font-mono">logo_icon.png</span>
+        </div>
+
+        <!-- Variant 3: SVG Vector Globe -->
+        <div class="glass p-6 rounded-2xl border border-slate-800/80 flex flex-col justify-between items-center text-center space-y-4 h-72">
+          <span class="text-[9px] uppercase tracking-widest text-slate-500 font-bold">Vector Network SVG</span>
+          <div class="w-32 h-32 bg-slate-950 rounded-lg flex items-center justify-center p-2 border border-slate-850">
+            <img src="logo_suite/logo_network.svg" alt="Vector Network SVG" class="max-w-full max-h-full object-contain">
+          </div>
+          <span class="text-[10px] text-slate-400 font-mono">logo_network.svg</span>
+        </div>
+      </div>
+    </section>
+
+    <hr class="border-slate-900" />
+
+    <!-- SECTION 3: Design Tokens -->
+    <section id="tokens" class="space-y-6">
+      <h3 class="text-xl font-bold text-white">Semantic Tokens &amp; Palette</h3>
+      <p class="text-xs text-slate-400">Core CSS theme variables used to maintain visual consistency across all layouts.</p>
+      
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+        <div class="glass p-4 rounded-xl border border-slate-800 flex flex-col gap-3">
+          <div class="w-full h-12 rounded bg-[#020617] border border-slate-800"></div>
+          <div>
+            <h4 class="text-xs font-bold text-white">Obsidian Black</h4>
+            <p class="text-[10px] text-slate-400 font-mono">#020617</p>
+            <p class="text-[9px] text-slate-500 font-mono">--background</p>
+          </div>
+        </div>
+        <div class="glass p-4 rounded-xl border border-slate-800 flex flex-col gap-3">
+          <div class="w-full h-12 rounded bg-[#0f172a] border border-slate-800"></div>
+          <div>
+            <h4 class="text-xs font-bold text-white">Slate Surface</h4>
+            <p class="text-[10px] text-slate-400 font-mono">#0f172a</p>
+            <p class="text-[9px] text-slate-500 font-mono">--card</p>
+          </div>
+        </div>
+        <div class="glass p-4 rounded-xl border border-slate-800 flex flex-col gap-3">
+          <div class="w-full h-12 rounded bg-[#3b82f6]"></div>
+          <div>
+            <h4 class="text-xs font-bold text-white">Electric Blue</h4>
+            <p class="text-[10px] text-slate-400 font-mono">#3b82f6</p>
+            <p class="text-[9px] text-slate-500 font-mono">--primary</p>
+          </div>
+        </div>
+        <div class="glass p-4 rounded-xl border border-slate-800 flex flex-col gap-3">
+          <div class="w-full h-12 rounded bg-[#8b5cf6]"></div>
+          <div>
+            <h4 class="text-xs font-bold text-white">Cyber Violet</h4>
+            <p class="text-[10px] text-slate-400 font-mono">#8b5cf6</p>
+            <p class="text-[9px] text-slate-500 font-mono">--secondary</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="border-slate-900" />
+
+    <!-- SECTION 4: Corporate Identity -->
+    <section id="cip" class="space-y-6">
+      <h3 class="text-xl font-bold text-white">Corporate Identity Program (CIP)</h3>
+      <p class="text-xs text-slate-400">Interactive live previews of business cards, emails, and official letterheads.</p>
+
+      <div class="space-y-8">
+        <!-- Business card iframe -->
+        <div class="glass p-6 rounded-2xl border border-slate-800 space-y-4">
+          <div class="flex items-center justify-between">
+            <h4 class="text-sm font-bold text-white">Double-Sided Business Card</h4>
+            <a href="cip_suite/business_card.html" target="_blank" class="text-xs text-blue-400 hover:underline">Open Live Card →</a>
+          </div>
+          <div class="w-full border border-slate-850 rounded-xl overflow-hidden bg-slate-950">
+            <iframe src="cip_suite/business_card.html" class="w-full h-[620px]" frameborder="0"></iframe>
+          </div>
+        </div>
+
+        <!-- Letterhead and email signature -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="glass p-6 rounded-2xl border border-slate-800 space-y-4">
+            <div class="flex items-center justify-between">
+              <h4 class="text-sm font-bold text-white">Email Signature Preview</h4>
+              <a href="cip_suite/email_signature.html" target="_blank" class="text-xs text-blue-400 hover:underline">Open Live Signature →</a>
+            </div>
+            <div class="w-full border border-slate-850 rounded-xl overflow-hidden bg-slate-950">
+              <iframe src="cip_suite/email_signature.html" class="w-full h-[240px]" frameborder="0"></iframe>
+            </div>
+          </div>
+
+          <div class="glass p-6 rounded-2xl border border-slate-800 space-y-4">
+            <div class="flex items-center justify-between">
+              <h4 class="text-sm font-bold text-white">Official Letterhead Preview</h4>
+              <a href="cip_suite/letterhead.html" target="_blank" class="text-xs text-blue-400 hover:underline">Open Letterhead Layout →</a>
+            </div>
+            <div class="w-full border border-slate-850 rounded-xl overflow-hidden bg-slate-950">
+              <iframe src="cip_suite/letterhead.html" class="w-full h-[240px]" frameborder="0"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="border-slate-900" />
+
+    <!-- SECTION 5: Presentation Engine -->
+    <section id="presentation" class="space-y-6">
+      <h3 class="text-xl font-bold text-white">Product Pitch Presentation Engine</h3>
+      <p class="text-xs text-slate-400">Interactive slide deck introduces SocialGraph Atlas features, geocoding details, and architecture statistics.</p>
+
+      <div class="glass p-6 rounded-2xl border border-slate-800 space-y-4">
+        <div class="flex items-center justify-between">
+          <h4 class="text-sm font-bold text-white">Interactive Pitch Deck</h4>
+          <a href="presentation/index.html" target="_blank" class="px-3.5 py-1.5 rounded bg-blue-600 hover:bg-blue-500 text-xs font-semibold text-white uppercase tracking-wider transition">Launch Fullscreen</a>
+        </div>
+        <div class="w-full border border-slate-850 rounded-xl overflow-hidden bg-[#020617] aspect-video">
+          <iframe src="presentation/index.html" class="w-full h-full" frameborder="0"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <hr class="border-slate-900" />
+
+    <!-- SECTION 6: Banners & Social -->
+    <section id="banners" class="space-y-6">
+      <h3 class="text-xl font-bold text-white">Marketing &amp; Social Banners</h3>
+      <p class="text-xs text-slate-400">Pixel-perfect dimensions matching professional headers for social media handles.</p>
+
+      <div class="space-y-8">
+        <!-- LinkedIn Header -->
+        <div class="glass p-6 rounded-2xl border border-slate-800 space-y-3">
+          <h4 class="text-xs font-bold text-white uppercase tracking-widest text-slate-500">LinkedIn Cover Header (1584x396)</h4>
+          <div class="w-full border border-slate-850 rounded-xl overflow-hidden bg-slate-950">
+            <iframe src="banners/linkedin_header.html" class="w-full h-[320px]" frameborder="0"></iframe>
+          </div>
+        </div>
+
+        <!-- Twitter Header -->
+        <div class="glass p-6 rounded-2xl border border-slate-800 space-y-3">
+          <h4 class="text-xs font-bold text-white uppercase tracking-widest text-slate-500">Twitter Cover Header (1500x500)</h4>
+          <div class="w-full border border-slate-850 rounded-xl overflow-hidden bg-slate-950">
+            <iframe src="banners/twitter_header.html" class="w-full h-[320px]" frameborder="0"></iframe>
+          </div>
+        </div>
+
+        <!-- Web Hero Banner -->
+        <div class="glass p-6 rounded-2xl border border-slate-800 space-y-3">
+          <h4 class="text-xs font-bold text-white uppercase tracking-widest text-slate-500">Website Hero Landing Page Banner</h4>
+          <div class="w-full border border-slate-850 rounded-xl overflow-hidden bg-slate-950">
+            <iframe src="banners/website_hero.html" class="w-full h-[450px]" frameborder="0"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="border-slate-900" />
+
+    <!-- SECTION 7: SVG Icons -->
+    <section id="icons" class="space-y-6">
+      <h3 class="text-xl font-bold text-white">SVG Icon Library</h3>
+      <p class="text-xs text-slate-400">Custom vector icons developed for platform integrations, confidence levels, and mapping nodes.</p>
+
+      <div class="grid grid-cols-2 sm:grid-cols-5 gap-6">
+        <div class="glass p-4 rounded-xl border border-slate-800 flex flex-col items-center text-center space-y-3">
+          <div class="w-12 h-12 bg-slate-900 border border-slate-800 rounded flex items-center justify-center text-blue-500">
+            <img src="icons/github_adapter.svg" class="w-6 h-6">
+          </div>
+          <div>
+            <h4 class="text-xs font-bold text-white">GitHub Adapter</h4>
+            <p class="text-[9px] text-slate-500 font-mono">github_adapter.svg</p>
+          </div>
+        </div>
+
+        <div class="glass p-4 rounded-xl border border-slate-800 flex flex-col items-center text-center space-y-3">
+          <div class="w-12 h-12 bg-slate-900 border border-slate-800 rounded flex items-center justify-center text-violet-500">
+            <img src="icons/reddit_adapter.svg" class="w-6 h-6">
+          </div>
+          <div>
+            <h4 class="text-xs font-bold text-white">Reddit Adapter</h4>
+            <p class="text-[9px] text-slate-500 font-mono">reddit_adapter.svg</p>
+          </div>
+        </div>
+
+        <div class="glass p-4 rounded-xl border border-slate-800 flex flex-col items-center text-center space-y-3">
+          <div class="w-12 h-12 bg-slate-900 border border-slate-800 rounded flex items-center justify-center text-emerald-500">
+            <img src="icons/web_adapter.svg" class="w-6 h-6">
+          </div>
+          <div>
+            <h4 class="text-xs font-bold text-white">Web Adapter</h4>
+            <p class="text-[9px] text-slate-500 font-mono">web_adapter.svg</p>
+          </div>
+        </div>
+
+        <div class="glass p-4 rounded-xl border border-slate-800 flex flex-col items-center text-center space-y-3">
+          <div class="w-12 h-12 bg-slate-900 border border-slate-800 rounded flex items-center justify-center text-rose-500">
+            <img src="icons/geo_confidence.svg" class="w-6 h-6">
+          </div>
+          <div>
+            <h4 class="text-xs font-bold text-white">Geo Score</h4>
+            <p class="text-[9px] text-slate-500 font-mono">geo_confidence.svg</p>
+          </div>
+        </div>
+
+        <div class="glass p-4 rounded-xl border border-slate-800 flex flex-col items-center text-center space-y-3">
+          <div class="w-12 h-12 bg-slate-900 border border-slate-800 rounded flex items-center justify-center text-white">
+            <img src="icons/connection_link.svg" class="w-6 h-6">
+          </div>
+          <div>
+            <h4 class="text-xs font-bold text-white">Connection Link</h4>
+            <p class="text-[9px] text-slate-500 font-mono">connection_link.svg</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+</body>
+</html>

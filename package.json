@@ -1,0 +1,46 @@
+{
+  "name": "socialgraph-atlas",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "prisma:generate": "prisma generate",
+    "prisma:db-push": "prisma db push",
+    "prisma:seed": "prisma db seed"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^3.9.0",
+    "@prisma/client": "^5.20.0",
+    "autoprefixer": "^10.4.20",
+    "cheerio": "^1.0.0-rc.12",
+    "clsx": "^2.1.1",
+    "firebase": "^12.16.0",
+    "firebase-admin": "^14.2.0",
+    "framer-motion": "^12.42.2",
+    "jose": "^6.2.3",
+    "lucide-react": "^0.453.0",
+    "maplibre-gl": "^4.7.1",
+    "next": "^15.0.1",
+    "postcss": "^8.4.47",
+    "react": "^19.0.0-rc-6f2305d879-20241014",
+    "react-dom": "^19.0.0-rc-6f2305d879-20241014",
+    "react-hook-form": "^7.53.0",
+    "tailwind-merge": "^2.5.3",
+    "tailwindcss": "^3.4.14",
+    "zod": "^3.23.8",
+    "zustand": "^5.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.16.11",
+    "@types/react": "^19.0.0-rc.1",
+    "@types/react-dom": "^19.0.0-rc.1",
+    "prisma": "^5.20.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3"
+  },
+  "prisma": {
+    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
+  }
+}

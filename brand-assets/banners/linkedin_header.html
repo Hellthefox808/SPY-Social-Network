@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SocialGraph Atlas - LinkedIn Header Banner</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #020617;
+    }
+  </style>
+</head>
+<body class="p-6 flex flex-col items-center justify-center min-h-screen">
+
+  <div class="w-full max-w-4xl flex items-center justify-between mb-4">
+    <h1 class="text-xl font-bold text-white">LinkedIn Header Banner (1584x396)</h1>
+    <span class="text-xs text-slate-500 uppercase tracking-widest">Dimension Guard: Safe Zones Verified</span>
+  </div>
+
+  <!-- LINKEDIN BANNER CANVAS -->
+  <div class="w-[792px] h-[198px] rounded-xl relative overflow-hidden bg-[#020617] border border-slate-800 flex items-center justify-between p-10 select-none shadow-2xl">
+    <!-- Grid overlay background -->
+    <div class="absolute inset-0 bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:16px_16px] opacity-25"></div>
+    <!-- Neon back glow -->
+    <div class="absolute right-0 top-0 w-80 h-full bg-blue-500/10 blur-[80px] rounded-full pointer-events-none"></div>
+    <div class="absolute left-1/3 bottom-0 w-60 h-40 bg-violet-500/10 blur-[60px] rounded-full pointer-events-none"></div>
+
+    <!-- Left side: Brand Title & Tagline -->
+    <div class="space-y-3 z-10">
+      <div class="flex items-center gap-2">
+        <svg class="h-8 w-8 text-blue-500" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="50" r="40" stroke="currentColor" stroke-width="4" />
+          <path d="M30 40 L50 65 L70 35 L50 45 Z" fill="none" stroke="#8b5cf6" stroke-width="3" />
+          <circle cx="30" cy="40" r="5" fill="#8b5cf6" />
+          <circle cx="50" cy="65" r="5" fill="#10b981" />
+          <circle cx="70" cy="35" r="5" fill="#3b82f6" />
+        </svg>
+        <div>
+          <h2 class="text-lg font-black tracking-widest text-white uppercase leading-none">SocialGraph <span class="text-blue-400">Atlas</span></h2>
+          <p class="text-[8px] uppercase tracking-[0.3em] text-slate-500 mt-0.5">Geo-Intelligence Platform</p>
+        </div>
+      </div>
+      
+      <div class="space-y-1">
+        <h3 class="text-xs font-semibold text-slate-200 tracking-wide">Mapping Public Social Graphs &amp; Geographical Signals</h3>
+        <p class="text-[10px] text-slate-400 leading-normal max-w-[420px]">
+          An automated compliance-first OSINT analysis engine featuring local tech hub geocoders, and interactive physics networks.
+        </p>
+      </div>
+    </div>
+
+    <!-- Right side: Mock Dashboard Snippet -->
+    <div class="w-64 h-32 rounded-lg border border-slate-800 bg-[#090d16]/80 backdrop-blur-md p-3 space-y-2 relative overflow-hidden z-10 flex flex-col justify-between">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-1.5">
+        <span class="text-[8px] font-bold text-slate-500 uppercase tracking-widest">Adapter Status</span>
+        <div class="flex items-center gap-1">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span class="text-[8px] text-emerald-400 font-bold uppercase">Online</span>
+        </div>
+      </div>
+      
+      <div class="flex-1 flex items-center justify-center">
+        <!-- Minimalist vector nodes graphic -->
+        <svg class="w-full h-12" viewBox="0 0 200 60">
+          <!-- Lines -->
+          <line x1="30" y1="30" x2="90" y2="15" stroke="#1e293b" stroke-width="1" />
+          <line x1="90" y1="15" x2="150" y2="40" stroke="#1e293b" stroke-width="1" />
+          <line x1="90" y1="15" x2="110" y2="50" stroke="#1e293b" stroke-width="1" />
+          <!-- Nodes -->
+          <circle cx="30" cy="30" r="4" fill="#3b82f6" />
+          <circle cx="90" cy="15" r="5" fill="#8b5cf6" />
+          <circle cx="150" cy="40" r="4.5" fill="#10b981" />
+          <circle cx="110" cy="50" r="3" fill="#64748b" />
+          <!-- Text labels -->
+          <text x="38" y="33" fill="#64748b" font-size="6" font-family="monospace">GH:Torvalds</text>
+          <text x="98" y="18" fill="#64748b" font-size="6" font-family="monospace">RD:Linux</text>
+          <text x="158" y="43" fill="#10b981" font-size="6" font-family="monospace">CONF:0.95</text>
+        </svg>
+      </div>
+
+      <div class="flex items-center justify-between text-[8px] text-slate-500">
+        <span>SQLITE STABLE</span>
+        <span class="font-mono text-[7px] text-blue-500">REF: OSINT-2026</span>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
