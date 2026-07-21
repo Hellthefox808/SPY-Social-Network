@@ -33,7 +33,7 @@ export default function KnowledgeGraphTab({
     locationCount: locations.length,
     hasBio: !!profile.bio,
     bioLength: profile.bio?.length || 0,
-    verified: !!profile.verified,
+    verified: (profile.followersCount || 0) > 1000,
     confidenceAvg: 0.92,
   });
 
