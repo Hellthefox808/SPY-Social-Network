@@ -130,28 +130,6 @@ export default function Home() {
             {error}
           </p>
         )}
-
-        {/* Quick Sample Target Chips */}
-        <div className="flex flex-wrap items-center justify-center gap-2 mt-4 text-xs">
-          <span className="text-slate-400 font-semibold">Try sample:</span>
-          {[
-            { label: "torvalds (GitHub)", val: "https://github.com/torvalds" },
-            { label: "spez (Reddit)", val: "https://www.reddit.com/user/spez" },
-            { label: "facebook (GitHub)", val: "https://github.com/facebook" },
-            { label: "Hacker News", val: "https://news.ycombinator.com" },
-          ].map((sample) => (
-            <button
-              key={sample.val}
-              type="button"
-              onClick={() => {
-                setUrlInput(sample.val);
-              }}
-              className="px-2.5 py-1 rounded-full bg-slate-950/80 backdrop-blur-md border border-slate-800 text-slate-300 hover:text-white hover:border-blue-500/50 transition font-mono text-[11px] cursor-pointer"
-            >
-              {sample.label}
-            </button>
-          ))}
-        </div>
       </div>
 
       {/* Supported Platforms */}
@@ -169,40 +147,6 @@ export default function Home() {
               {p.name}
             </div>
           ))}
-        </div>
-      </div>
-
-      {/* Decision Layer Pipeline */}
-      <div className="w-full max-w-5xl mt-20 border-t border-slate-900/80 pt-16 relative z-10">
-        <h2 className="text-2xl font-bold text-center text-slate-200">The Decision Layer Architecture</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
-          <div className="bg-slate-950/60 backdrop-blur-md border border-slate-900 p-6 rounded-xl space-y-3 shadow-lg">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-500/10 text-blue-400">
-              <FileSearch2 className="h-5 w-5" />
-            </div>
-            <h3 className="font-semibold text-slate-200">1. Ingest &amp; Normalize</h3>
-            <p className="text-xs text-slate-400 leading-relaxed">
-              Ingests authorized profile endpoints across GitHub, LinkedIn, Naukri.com, and social channels into structured entities.
-            </p>
-          </div>
-          <div className="bg-slate-950/60 backdrop-blur-md border border-slate-900 p-6 rounded-xl space-y-3 shadow-lg">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-500/10 text-indigo-400">
-              <Network className="h-5 w-5" />
-            </div>
-            <h3 className="font-semibold text-slate-200">2. Multi-Agent &amp; 10-Metric Score</h3>
-            <p className="text-xs text-slate-400 leading-relaxed">
-              Specialized AI agents calculate deterministic scores across Technical Depth, Network Reach, and Skill Maturity.
-            </p>
-          </div>
-          <div className="bg-slate-950/60 backdrop-blur-md border border-slate-900 p-6 rounded-xl space-y-3 shadow-lg">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-500/10 text-emerald-400">
-              <MapPin className="h-5 w-5" />
-            </div>
-            <h3 className="font-semibold text-slate-200">3. Geo-Heatmap &amp; Executive Export</h3>
-            <p className="text-xs text-slate-400 leading-relaxed">
-              Renders high-density geographic cluster maps and exports decision-ready PDF briefings for marketing and HR teams.
-            </p>
-          </div>
         </div>
       </div>
     </div>
