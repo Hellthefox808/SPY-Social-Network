@@ -120,7 +120,6 @@ export default function SignupPage() {
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        style={{ rotateX, rotateY }}
         transition={{ duration: 0.5, ease: "easeOut" }}
         className="w-full max-w-md glassmorphism rounded-2xl p-8 relative z-10 shadow-2xl transition-all duration-300 hover:border-slate-800/80"
       >

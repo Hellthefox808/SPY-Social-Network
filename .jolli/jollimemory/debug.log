@@ -863,3 +863,79 @@ fatal: Invalid revision range a500aebf3d6585ebca4d76ffb267078082f1ef2b..59f81583
 [2026-07-21T19:33:29.875Z] INFO  [QueueWorker] [trace=c78352cf0982a491f37aa451e24ca5c5] Note association: detected 0 note(s): []
 [2026-07-21T19:33:29.875Z] INFO  [QueueWorker] [trace=c78352cf0982a491f37aa451e24ca5c5] Reference association: detected 0 ref(s) for branch main
 [2026-07-21T19:33:29.876Z] INFO  [QueueWorker] [trace=c78352cf0982a491f37aa451e24ca5c5] Summary built for 814046fc: recap=no, topics=0, plans=absent, notes=absent, references=absent
+[2026-07-21T19:34:35.076Z] INFO  [PrepareMsgHook] === Prepare-commit-msg hook started (source: message) ===
+[2026-07-21T19:34:35.232Z] INFO  [PrepareMsgHook] === Prepare-commit-msg hook finished ===
+[2026-07-21T19:34:36.205Z] INFO  [PostCommitHook] [trace=c6981e09cf179f2b2bb8bd971dd1dabc] Detected operation: commit
+[2026-07-21T19:34:36.358Z] INFO  [PostCommitHook] [trace=c6981e09cf179f2b2bb8bd971dd1dabc] Enqueued: type=commit hash=d977b399
+[2026-07-21T19:34:36.359Z] INFO  [QueueWorker] [trace=c6981e09cf179f2b2bb8bd971dd1dabc] Launching background worker
+[2026-07-21T19:34:36.372Z] INFO  [QueueWorker] [trace=c6981e09cf179f2b2bb8bd971dd1dabc] Background worker spawned (PID: 31256)
+[2026-07-21T19:34:36.651Z] INFO  [QueueWorker] [trace=c6981e09cf179f2b2bb8bd971dd1dabc] === Queue worker started === node=26.2.0 kind=vscode-plugin source=antigravity-ide pkgVer=0.99.8 cliVer=0.99.8 dist=c:\Users\ravir\.antigravity-ide\extensions\jolli.jollimemory-vscode-0.99.8-universal\dist
+[2026-07-21T19:34:37.324Z] WARN  [LockPrimitives] [trace=c6981e09cf179f2b2bb8bd971dd1dabc] Removing orphaned lock C:\Users\ravir\.jolli\jollimemory\locks\vault-4255070d57d1bda86f2474fe32e8031ca0c41b4eb355e6ffdda4d4119deb2a1d.lock (PID 24604 no longer running)
+[2026-07-21T19:34:37.329Z] INFO  [StorageFactory] [trace=c6981e09cf179f2b2bb8bd971dd1dabc] StorageFactory.create: storageMode=dual-write, projectPath=C:\Users\ravir\Desktop\PROJECT\p1\SPY
+[2026-07-21T19:34:37.642Z] INFO  [StorageFactory] [trace=c6981e09cf179f2b2bb8bd971dd1dabc] Storage mode: dual-write (primary=orphan, shadow=folder)
+[2026-07-21T19:34:37.644Z] WARN  [LockPrimitives] [trace=c6981e09cf179f2b2bb8bd971dd1dabc] Removing orphaned lock C:\Users\ravir\Desktop\PROJECT\p1\SPY\.jolli\jollimemory\worker.lock (PID 24604 no longer running)
+[2026-07-21T19:34:37.652Z] INFO  [QueueWorker] [trace=c78352cf0982a491f37aa451e24ca5c5] Processing queue entry: type=commit hash=814046fc
+[2026-07-21T19:34:37.820Z] INFO  [GitOps] [trace=c78352cf0982a491f37aa451e24ca5c5] Commit 814046fc: Update Landing Page to Consent-First AI Profile Intelligence
+[2026-07-21T19:34:37.820Z] INFO  [QueueWorker] [trace=c78352cf0982a491f37aa451e24ca5c5] Commit: 814046fc - Update Landing Page to Consent-First AI Profile Intelligence SaaS positioning & Decision Layer Architecture (164ms)
+[2026-07-21T19:34:37.892Z] INFO  [QueueWorker] [trace=c78352cf0982a491f37aa451e24ca5c5] Discovered 2 Copilot Chat session(s)
+[2026-07-21T19:34:38.245Z] INFO  [QueueWorker] [trace=c78352cf0982a491f37aa451e24ca5c5] Git diff: 6 files changed, +91 -29 (337ms)
+[2026-07-21T19:34:38.500Z] INFO  [QueueWorker] [trace=c78352cf0982a491f37aa451e24ca5c5] Prompt blocks: plans=0 notes=0 references=0 (AI soft-excluded 0)
+[2026-07-21T19:34:38.500Z] INFO  [Summarizer] [trace=c78352cf0982a491f37aa451e24ca5c5] Generating summary for commit 814046fc
+[2026-07-21T19:34:38.500Z] INFO  [Summarizer] [trace=c78352cf0982a491f37aa451e24ca5c5] Context: transcript=0, files=6, lines=91+29
+[2026-07-21T19:34:38.501Z] WARN  [QueueWorker] [trace=c78352cf0982a491f37aa451e24ca5c5] First API attempt failed: No LLM provider available. Set an Anthropic API key (ANTHROPIC_API_KEY) or configure a Jolli Space API key (jolliApiKey).. Retrying in 2000ms...
+[2026-07-21T19:34:39.421Z] INFO  [PrePushHook] [trace=03dd60fe31b06a79301809f34a7d0976] pre-push hook: remote=origin budget=3000ms
+[2026-07-21T19:34:39.477Z] INFO  [PushPendingStore] [trace=03dd60fe31b06a79301809f34a7d0976] Enqueued 1 new push-pending entries (branch=main)
+[2026-07-21T19:34:39.479Z] INFO  [PrePushHook] [trace=03dd60fe31b06a79301809f34a7d0976] pre-push: recorded 1 commit(s) across 1 pushed ref(s)
+[2026-07-21T19:34:39.479Z] INFO  [PrePushHook] [trace=03dd60fe31b06a79301809f34a7d0976] Recorded 1 commit(s) for later sync — not signed in to Jolli
+[2026-07-21T19:34:39.479Z] INFO  [StorageFactory] [trace=03dd60fe31b06a79301809f34a7d0976] StorageFactory.create: storageMode=dual-write, projectPath=C:\Users\ravir\Desktop\PROJECT\p1\SPY
+[2026-07-21T19:34:39.556Z] INFO  [StorageFactory] [trace=03dd60fe31b06a79301809f34a7d0976] Storage mode: dual-write (primary=orphan, shadow=folder)
+[2026-07-21T19:34:40.503Z] INFO  [Summarizer] [trace=c78352cf0982a491f37aa451e24ca5c5] Generating summary for commit 814046fc
+[2026-07-21T19:34:40.503Z] INFO  [Summarizer] [trace=c78352cf0982a491f37aa451e24ca5c5] Context: transcript=0, files=6, lines=91+29
+[2026-07-21T19:34:40.503Z] ERROR [QueueWorker] [trace=c78352cf0982a491f37aa451e24ca5c5] API call failed after retry: No LLM provider available. Set an Anthropic API key (ANTHROPIC_API_KEY) or configure a Jolli Space API key (jolliApiKey).
+[2026-07-21T19:34:40.503Z] WARN  [QueueWorker] [trace=c78352cf0982a491f37aa451e24ca5c5] Saving summary with empty topics + summaryError marker for commit 814046fc
+[2026-07-21T19:34:40.503Z] INFO  [QueueWorker] [trace=c78352cf0982a491f37aa451e24ca5c5] API summary generated (2.0s)
+[2026-07-21T19:34:40.504Z] INFO  [QueueWorker] [trace=c78352cf0982a491f37aa451e24ca5c5] Plan registry scan: found 0 uncommitted slug(s) on main: []
+[2026-07-21T19:34:40.505Z] INFO  [QueueWorker] [trace=c78352cf0982a491f37aa451e24ca5c5] Plan association: detected 0 slug(s) from transcripts: []
+[2026-07-21T19:34:40.505Z] INFO  [QueueWorker] [trace=c78352cf0982a491f37aa451e24ca5c5] Note registry scan: found 0 uncommitted note(s) on main: []
+[2026-07-21T19:34:40.506Z] INFO  [QueueWorker] [trace=c78352cf0982a491f37aa451e24ca5c5] Note association: detected 0 note(s): []
+[2026-07-21T19:34:40.512Z] INFO  [QueueWorker] [trace=c78352cf0982a491f37aa451e24ca5c5] Reference association: detected 0 ref(s) for branch main
+[2026-07-21T19:34:40.512Z] INFO  [QueueWorker] [trace=c78352cf0982a491f37aa451e24ca5c5] Summary built for 814046fc: recap=no, topics=0, plans=absent, notes=absent, references=absent
+[2026-07-21T19:34:40.736Z] WARN  [LockPrimitives] [trace=c78352cf0982a491f37aa451e24ca5c5] Removing orphaned lock C:\Users\ravir\Desktop\PROJECT\p1\SPY\.git\jollimemory\orphan-write.lock (PID 24604 no longer running)
+[2026-07-21T19:36:14.108Z] INFO  [PrepareMsgHook] === Prepare-commit-msg hook started (source: message) ===
+[2026-07-21T19:36:14.276Z] INFO  [PrepareMsgHook] === Prepare-commit-msg hook finished ===
+[2026-07-21T19:36:15.680Z] INFO  [PostCommitHook] [trace=e0876c69bb2d7d141f96df00c128938f] Detected operation: commit
+[2026-07-21T19:36:16.733Z] INFO  [PostCommitHook] [trace=e0876c69bb2d7d141f96df00c128938f] Enqueued: type=commit hash=687cda3e
+[2026-07-21T19:36:16.734Z] INFO  [QueueWorker] [trace=e0876c69bb2d7d141f96df00c128938f] Launching background worker
+[2026-07-21T19:36:16.748Z] INFO  [QueueWorker] [trace=e0876c69bb2d7d141f96df00c128938f] Background worker spawned (PID: 11932)
+[2026-07-21T19:36:17.350Z] INFO  [QueueWorker] [trace=e0876c69bb2d7d141f96df00c128938f] === Queue worker started === node=26.2.0 kind=vscode-plugin source=antigravity-ide pkgVer=0.99.8 cliVer=0.99.8 dist=c:\Users\ravir\.antigravity-ide\extensions\jolli.jollimemory-vscode-0.99.8-universal\dist
+[2026-07-21T19:36:17.359Z] WARN  [LockPrimitives] [trace=e0876c69bb2d7d141f96df00c128938f] Removing orphaned lock C:\Users\ravir\.jolli\jollimemory\locks\vault-4255070d57d1bda86f2474fe32e8031ca0c41b4eb355e6ffdda4d4119deb2a1d.lock (PID 31256 no longer running)
+[2026-07-21T19:36:17.364Z] INFO  [StorageFactory] [trace=e0876c69bb2d7d141f96df00c128938f] StorageFactory.create: storageMode=dual-write, projectPath=C:\Users\ravir\Desktop\PROJECT\p1\SPY
+[2026-07-21T19:36:18.056Z] INFO  [StorageFactory] [trace=e0876c69bb2d7d141f96df00c128938f] Storage mode: dual-write (primary=orphan, shadow=folder)
+[2026-07-21T19:36:18.058Z] WARN  [LockPrimitives] [trace=e0876c69bb2d7d141f96df00c128938f] Removing orphaned lock C:\Users\ravir\Desktop\PROJECT\p1\SPY\.jolli\jollimemory\worker.lock (PID 31256 no longer running)
+[2026-07-21T19:36:18.069Z] INFO  [QueueWorker] [trace=c78352cf0982a491f37aa451e24ca5c5] Processing queue entry: type=commit hash=814046fc
+[2026-07-21T19:36:18.333Z] INFO  [GitOps] [trace=c78352cf0982a491f37aa451e24ca5c5] Commit 814046fc: Update Landing Page to Consent-First AI Profile Intelligence
+[2026-07-21T19:36:18.333Z] INFO  [QueueWorker] [trace=c78352cf0982a491f37aa451e24ca5c5] Commit: 814046fc - Update Landing Page to Consent-First AI Profile Intelligence SaaS positioning & Decision Layer Architecture (260ms)
+[2026-07-21T19:36:18.389Z] INFO  [QueueWorker] [trace=c78352cf0982a491f37aa451e24ca5c5] Discovered 2 Copilot Chat session(s)
+[2026-07-21T19:36:18.752Z] INFO  [QueueWorker] [trace=c78352cf0982a491f37aa451e24ca5c5] Git diff: 6 files changed, +91 -29 (344ms)
+[2026-07-21T19:36:18.973Z] INFO  [QueueWorker] [trace=c78352cf0982a491f37aa451e24ca5c5] Prompt blocks: plans=0 notes=0 references=0 (AI soft-excluded 0)
+[2026-07-21T19:36:18.974Z] INFO  [Summarizer] [trace=c78352cf0982a491f37aa451e24ca5c5] Generating summary for commit 814046fc
+[2026-07-21T19:36:18.974Z] INFO  [Summarizer] [trace=c78352cf0982a491f37aa451e24ca5c5] Context: transcript=0, files=6, lines=91+29
+[2026-07-21T19:36:18.975Z] WARN  [QueueWorker] [trace=c78352cf0982a491f37aa451e24ca5c5] First API attempt failed: No LLM provider available. Set an Anthropic API key (ANTHROPIC_API_KEY) or configure a Jolli Space API key (jolliApiKey).. Retrying in 2000ms...
+[2026-07-21T19:36:20.245Z] INFO  [PrePushHook] [trace=f592b52414586548a58149d5c4d598e6] pre-push hook: remote=origin budget=3000ms
+[2026-07-21T19:36:20.333Z] INFO  [PushPendingStore] [trace=f592b52414586548a58149d5c4d598e6] Enqueued 1 new push-pending entries (branch=main)
+[2026-07-21T19:36:20.336Z] INFO  [PrePushHook] [trace=f592b52414586548a58149d5c4d598e6] pre-push: recorded 1 commit(s) across 1 pushed ref(s)
+[2026-07-21T19:36:20.336Z] INFO  [PrePushHook] [trace=f592b52414586548a58149d5c4d598e6] Recorded 1 commit(s) for later sync — not signed in to Jolli
+[2026-07-21T19:36:20.338Z] INFO  [StorageFactory] [trace=f592b52414586548a58149d5c4d598e6] StorageFactory.create: storageMode=dual-write, projectPath=C:\Users\ravir\Desktop\PROJECT\p1\SPY
+[2026-07-21T19:36:20.457Z] INFO  [StorageFactory] [trace=f592b52414586548a58149d5c4d598e6] Storage mode: dual-write (primary=orphan, shadow=folder)
+[2026-07-21T19:36:20.987Z] INFO  [Summarizer] [trace=c78352cf0982a491f37aa451e24ca5c5] Generating summary for commit 814046fc
+[2026-07-21T19:36:20.987Z] INFO  [Summarizer] [trace=c78352cf0982a491f37aa451e24ca5c5] Context: transcript=0, files=6, lines=91+29
+[2026-07-21T19:36:20.988Z] ERROR [QueueWorker] [trace=c78352cf0982a491f37aa451e24ca5c5] API call failed after retry: No LLM provider available. Set an Anthropic API key (ANTHROPIC_API_KEY) or configure a Jolli Space API key (jolliApiKey).
+[2026-07-21T19:36:20.988Z] WARN  [QueueWorker] [trace=c78352cf0982a491f37aa451e24ca5c5] Saving summary with empty topics + summaryError marker for commit 814046fc
+[2026-07-21T19:36:20.988Z] INFO  [QueueWorker] [trace=c78352cf0982a491f37aa451e24ca5c5] API summary generated (2.0s)
+[2026-07-21T19:36:20.989Z] INFO  [QueueWorker] [trace=c78352cf0982a491f37aa451e24ca5c5] Plan registry scan: found 0 uncommitted slug(s) on main: []
+[2026-07-21T19:36:20.989Z] INFO  [QueueWorker] [trace=c78352cf0982a491f37aa451e24ca5c5] Plan association: detected 0 slug(s) from transcripts: []
+[2026-07-21T19:36:20.990Z] INFO  [QueueWorker] [trace=c78352cf0982a491f37aa451e24ca5c5] Note registry scan: found 0 uncommitted note(s) on main: []
+[2026-07-21T19:36:20.990Z] INFO  [QueueWorker] [trace=c78352cf0982a491f37aa451e24ca5c5] Note association: detected 0 note(s): []
+[2026-07-21T19:36:20.991Z] INFO  [QueueWorker] [trace=c78352cf0982a491f37aa451e24ca5c5] Reference association: detected 0 ref(s) for branch main
+[2026-07-21T19:36:20.991Z] INFO  [QueueWorker] [trace=c78352cf0982a491f37aa451e24ca5c5] Summary built for 814046fc: recap=no, topics=0, plans=absent, notes=absent, references=absent
+[2026-07-21T19:36:21.233Z] WARN  [LockPrimitives] [trace=c78352cf0982a491f37aa451e24ca5c5] Removing orphaned lock C:\Users\ravir\Desktop\PROJECT\p1\SPY\.git\jollimemory\orphan-write.lock (PID 31256 no longer running)
