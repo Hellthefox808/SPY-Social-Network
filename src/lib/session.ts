@@ -1,7 +1,14 @@
 import { SignJWT, jwtVerify } from "jose";
 import { cookies } from "next/headers";
 
-const secretKey = process.env.SESSION_SECRET || "default_super_secret_key_change_in_production";
+const getSecretKey = () => {
+  if (process.env.NODE_ENV === "production" && !process.env.SESSION_SECRET) {
+    throw new Error("CRITICAL SECURITY ERROR: SESSION_SECRET environment variable is missing in production.");
+  }
+  return process.env.SESSION_SECRET || "dev_super_secret_key_change_in_production_123456789";
+};
+
+const secretKey = getSecretKey();
 const encodedKey = new TextEncoder().encode(secretKey);
 
 export async function encrypt(payload: Record<string, unknown>) {
