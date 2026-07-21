@@ -63,28 +63,43 @@ export default function Navbar() {
 
         <nav className="flex items-center gap-2 sm:gap-4">
           <Link
-            href="/"
+            href="/pricing"
             className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition ${
-              isHomeActive
+              pathname === "/pricing"
                 ? "bg-blue-600/20 text-blue-300 border border-blue-500/30 shadow-sm"
                 : "text-slate-400 hover:text-slate-200 hover:bg-slate-900/60"
             }`}
           >
-            <Sparkles className="h-3.5 w-3.5" />
-            <span>New Analysis</span>
+            <span>Pricing</span>
           </Link>
-          
-          <Link
-            href="/reports"
-            className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition ${
-              isReportsActive
-                ? "bg-blue-600/20 text-blue-300 border border-blue-500/30 shadow-sm"
-                : "text-slate-400 hover:text-slate-200 hover:bg-slate-900/60"
-            }`}
-          >
-            <FileText className="h-3.5 w-3.5" />
-            <span>Saved Reports</span>
-          </Link>
+
+          {isAuthenticated && (
+            <>
+              <Link
+                href="/"
+                className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition ${
+                  isHomeActive
+                    ? "bg-blue-600/20 text-blue-300 border border-blue-500/30 shadow-sm"
+                    : "text-slate-400 hover:text-slate-200 hover:bg-slate-900/60"
+                }`}
+              >
+                <Sparkles className="h-3.5 w-3.5" />
+                <span>New Analysis</span>
+              </Link>
+              
+              <Link
+                href="/reports"
+                className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition ${
+                  isReportsActive
+                    ? "bg-blue-600/20 text-blue-300 border border-blue-500/30 shadow-sm"
+                    : "text-slate-400 hover:text-slate-200 hover:bg-slate-900/60"
+                }`}
+              >
+                <FileText className="h-3.5 w-3.5" />
+                <span>Saved Reports</span>
+              </Link>
+            </>
+          )}
 
           <div className="h-4 w-px bg-slate-800 mx-1" />
 
