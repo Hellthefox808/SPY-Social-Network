@@ -96,8 +96,16 @@ export default function LoginPage() {
 
       if (response.ok && data.success) {
         setSuccess("Authentication successful! Loading your dashboard...");
+        
+        // Securely handle Open Redirect Vulnerability
+        const urlParams = new URLSearchParams(window.location.search);
+        const redirectParam = urlParams.get("redirect");
+        const safeRedirect = (redirectParam && redirectParam.startsWith('/') && !redirectParam.startsWith('//')) 
+          ? redirectParam 
+          : '/';
+
         setTimeout(() => {
-          router.push("/");
+          router.push(safeRedirect);
           router.refresh();
         }, 800);
       } else {
