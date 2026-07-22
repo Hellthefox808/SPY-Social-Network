@@ -1,19 +1,21 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 import { decrypt } from '@/lib/session';
+import { logger } from '@/lib/logger';
 
 export async function middleware(request: NextRequest) {
   const path = request.nextUrl.pathname;
   const correlationId = request.headers.get('x-correlation-id') || `sg-${Date.now()}-${Math.random().toString(36).substring(2, 7)}`;
   
-  // Auth routes accessible without logging in
+  // Auth routes and public API endpoints accessible without logging in
   const isAuthPage =
     path === '/login' ||
     path === '/signup' ||
     path === '/forgot-password' ||
     path === '/reset-password' ||
     path === '/verify-email' ||
-    path.startsWith('/api/auth');
+    path.startsWith('/api/auth') ||
+    path === '/api/health';
 
   const sessionCookie = request.cookies.get('sg_session')?.value;
   const payload = sessionCookie ? await decrypt(sessionCookie) : null;
@@ -45,6 +47,21 @@ export async function middleware(request: NextRequest) {
   response.headers.set('X-Frame-Options', 'DENY');
   response.headers.set('X-XSS-Protection', '1; mode=block');
   response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
+  response.headers.set(
+    'Content-Security-Policy',
+    [
+      "default-src 'self'",
+      "script-src 'self' 'unsafe-eval' 'unsafe-inline'",   // Next.js dev needs eval + inline
+      "style-src 'self' 'unsafe-inline'",
+      "img-src 'self' data: blob: https://avatars.githubusercontent.com https://*.githubusercontent.com https://*.redditmedia.com https://*.tile.openstreetmap.org https://tile.openstreetmap.org",
+      "font-src 'self' data:",
+      "connect-src 'self' https://api.github.com https://www.reddit.com https://*.tile.openstreetmap.org",
+      "frame-src 'self'",
+      "object-src 'none'",
+      "base-uri 'self'",
+      "form-action 'self'",
+    ].join('; ')
+  );
   if (process.env.NODE_ENV === 'production') {
     response.headers.set('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
   }

@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
-import { Network, Shield, LogOut, Loader2, Sparkles, FileText, LogIn, UserPlus } from "lucide-react";
+import { Network, Shield, LogOut, Loader2, Sparkles, FileText, BarChart3, LogIn, UserPlus } from "lucide-react";
 import { useAuth } from "@/context/AuthContext";
 
 export default function Navbar() {
@@ -102,6 +102,18 @@ export default function Navbar() {
               >
                 <FileText className="h-3.5 w-3.5" />
                 <span>Saved Reports</span>
+              </Link>
+
+              <Link
+                href="/analytics"
+                className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition ${
+                  pathname.startsWith("/analytics")
+                    ? "bg-violet-600/20 text-violet-300 border border-violet-500/30 shadow-sm"
+                    : "text-slate-400 hover:text-slate-200 hover:bg-slate-900/60"
+                }`}
+              >
+                <BarChart3 className="h-3.5 w-3.5" />
+                <span>Analytics</span>
               </Link>
             </>
           )}

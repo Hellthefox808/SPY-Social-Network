@@ -1,11 +1,24 @@
 import { SignJWT, jwtVerify } from "jose";
 import { cookies } from "next/headers";
+import { logger } from "./logger";
 
-const getSecretKey = () => {
+const getSecretKey = (): string => {
   if (process.env.NODE_ENV === "production" && !process.env.SESSION_SECRET) {
     throw new Error("CRITICAL SECURITY ERROR: SESSION_SECRET environment variable is missing in production.");
   }
-  return process.env.SESSION_SECRET || "dev_super_secret_key_change_in_production_123456789";
+  if (process.env.SESSION_SECRET) {
+    return process.env.SESSION_SECRET;
+  }
+  // Dev-only fallback: generate a random key per process start using Web Crypto API.
+  // This invalidates all sessions after each server restart, which is acceptable in dev.
+  // Compatible with both Node.js and Edge Runtime.
+  const array = new Uint8Array(32);
+  crypto.getRandomValues(array);
+  const devFallback = Array.from(array)
+    .map((b) => b.toString(16).padStart(2, "0"))
+    .join("");
+  logger.warn("Dev session secret fallback in use — set SESSION_SECRET env var for persistent sessions", {});
+  return devFallback;
 };
 
 const secretKey = getSecretKey();

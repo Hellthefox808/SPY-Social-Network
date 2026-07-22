@@ -1,8 +1,10 @@
 import { ISocialAdapter, SocialAdapterResult } from "./types";
 import { fetchWithRetry } from "../utils/fetchWithRetry";
+import { logger } from "../logger";
 
 export class GitHubAdapter implements ISocialAdapter {
   platform = "github";
+  provider = "github-api" as const;
 
   supports(url: string): boolean {
     return url.toLowerCase().includes("github.com");
@@ -34,7 +36,7 @@ export class GitHubAdapter implements ISocialAdapter {
         const orgsRes = await fetchWithRetry(`https://api.github.com/users/${username}/orgs`, { headers });
         if (orgsRes.ok) orgsData = await orgsRes.json();
       } catch (e) {
-        console.warn("Failed to fetch GitHub orgs", e);
+        logger.warn("Failed to fetch GitHub orgs", {}, undefined, e);
       }
 
       let reposData: Array<{ name: string; homepage?: string; html_url: string }> = [];
@@ -42,7 +44,7 @@ export class GitHubAdapter implements ISocialAdapter {
         const reposRes = await fetchWithRetry(`https://api.github.com/users/${username}/repos?sort=updated&per_page=10`, { headers });
         if (reposRes.ok) reposData = await reposRes.json();
       } catch (e) {
-        console.warn("Failed to fetch GitHub repos", e);
+        logger.warn("Failed to fetch GitHub repos", {}, undefined, e);
       }
 
       const profile = {
@@ -126,6 +128,7 @@ export class GitHubAdapter implements ISocialAdapter {
 
       return {
         platform: "github",
+        provider: this.provider,
         profile,
         connections,
         locations,

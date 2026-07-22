@@ -1,8 +1,10 @@
 import { ISocialAdapter, SocialAdapterResult } from "./types";
 import { fetchWithRetry } from "../utils/fetchWithRetry";
+import { logger } from "../logger";
 
 export class RedditAdapter implements ISocialAdapter {
   platform = "reddit";
+  provider = "reddit-api" as const;
 
   supports(url: string): boolean {
     return url.toLowerCase().includes("reddit.com");
@@ -119,11 +121,12 @@ export class RedditAdapter implements ISocialAdapter {
           });
         }
       } catch (e) {
-        console.warn("Failed to fetch user subreddits:", e);
+        logger.warn("Failed to fetch user subreddits", {}, undefined, e);
       }
 
       return {
         platform: "reddit",
+        provider: this.provider,
         profile,
         connections,
         locations,

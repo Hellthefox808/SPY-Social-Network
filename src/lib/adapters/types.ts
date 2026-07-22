@@ -1,5 +1,14 @@
+export type SourceProvider =
+  | "github-api"
+  | "reddit-api"
+  | "web-scraper"
+  | "mock-simulator"
+  | "geo-service"
+  | "unknown";
+
 export type SocialAdapterResult = {
   platform: string;
+  provider: SourceProvider; // Which adapter/provider generated this data
   profile: {
     url: string;
     handle?: string;
@@ -49,6 +58,7 @@ export type SocialAdapterResult = {
 
 export interface ISocialAdapter {
   platform: string;
+  provider: SourceProvider;
   supports(url: string): boolean;
   analyze(url: string): Promise<SocialAdapterResult>;
 }

@@ -2,6 +2,7 @@ import { ISocialAdapter, SocialAdapterResult } from "./types";
 
 export class MockSocialAdapter implements ISocialAdapter {
   platform: string;
+  provider = "mock-simulator" as const;
 
   constructor(platform: string) {
     this.platform = platform;
@@ -126,6 +127,7 @@ export class MockSocialAdapter implements ISocialAdapter {
 
     return {
       platform: this.platform,
+      provider: this.provider,
       profile,
       connections,
       locations,

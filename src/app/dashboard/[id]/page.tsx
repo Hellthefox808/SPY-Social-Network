@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import {
   Loader2,
@@ -11,6 +11,7 @@ import {
   MapPin,
   ListTodo,
   TrendingUp,
+  Share2,
 } from "lucide-react";
 import SidebarFilters from "@/components/dashboard/SidebarFilters";
 import OverviewTab from "@/components/dashboard/OverviewTab";
@@ -21,19 +22,19 @@ import NetworkTab from "@/components/dashboard/NetworkTab";
 import KnowledgeGraphTab from "@/components/dashboard/KnowledgeGraphTab";
 import DetailsDrawer from "@/components/dashboard/DetailsDrawer";
 import { UnderwaterCanvas } from "@/components/ui";
-import { Share2 } from "lucide-react";
-
 import { NodeDetailData } from "@/components/dashboard/DetailsDrawer";
 import { AnalysisJobData, JobLocation, JobEntity, JobEdge } from "@/types/osint";
 
 export default function DashboardPage() {
   const params = useParams();
   const router = useRouter();
-  const id = (params?.id as string) || "";
+  const rawId = (params?.id as string) || "";
+  const id = rawId && rawId !== "undefined" && rawId !== "null" ? rawId : "";
 
   const [job, setJob] = useState<AnalysisJobData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [timedOut, setTimedOut] = useState(false);
   const [activeTab, setActiveTab] = useState("overview");
 
   // Filters state
@@ -48,10 +49,19 @@ export default function DashboardPage() {
     data: NodeDetailData;
   } | null>(null);
 
-  // Poll for job updates if not completed
+  // Poll for job updates if not completed (with timeout & max retries)
+  const POLL_INTERVAL_MS = 2000; // 2 seconds between polls
+  const MAX_RETRIES = 60; // 60 polls × 2s = 2 minutes max
+  const retryCountRef = useRef(0);
+
   useEffect(() => {
-    if (!id) return;
+    if (!id) {
+      setError("Invalid job ID. Please navigate to a valid report from the Reports page.");
+      setLoading(false);
+      return;
+    }
     let timer: NodeJS.Timeout;
+    retryCountRef.current = 0;
 
     const poll = async () => {
       try {
@@ -63,7 +73,14 @@ export default function DashboardPage() {
         if (data.status === "COMPLETED" || data.status === "FAILED") {
           setLoading(false);
         } else {
-          timer = setTimeout(poll, 2000);
+          retryCountRef.current += 1;
+          if (retryCountRef.current >= MAX_RETRIES) {
+            setTimedOut(true);
+            setLoading(false);
+            setError(`Analysis timed out after ${Math.round((MAX_RETRIES * POLL_INTERVAL_MS) / 1000)} seconds. The job may still be processing — try refreshing later.`);
+          } else {
+            timer = setTimeout(poll, POLL_INTERVAL_MS);
+          }
         }
       } catch (err: unknown) {
         const message = err instanceof Error ? err.message : "An error occurred.";
@@ -217,7 +234,6 @@ export default function DashboardPage() {
           setMinConfidence={setMinConfidence}
           selectedLocTypes={selectedLocTypes}
           setSelectedLocTypes={setSelectedLocTypes}
-          detectedPlatform={job.detectedPlatform}
         />
 
         {/* Main Content Area */}

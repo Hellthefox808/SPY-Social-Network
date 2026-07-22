@@ -19,7 +19,7 @@ export default function EvidenceTab({ evidenceItems }: EvidenceTabProps) {
       <div className="flex items-center justify-between border-b border-slate-900 pb-3">
         <div>
           <h3 className="font-bold text-slate-200 text-sm flex items-center gap-2">
-            <ShieldCheck className="h-4.5 w-4.5 text-blue-500" /> Evidence Audit Trail & Provenance Logs
+            <ShieldCheck className="h-4 w-4 text-blue-500" /> Evidence Audit Trail & Provenance Logs
           </h3>
           <p className="text-xs text-slate-500 mt-0.5">
             Cryptographically timestamped raw extraction snippets verifying data authenticity.

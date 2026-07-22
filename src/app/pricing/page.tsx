@@ -1,10 +1,7 @@
 "use client";
 
-import React from "react";
 import Link from "next/link";
 import { Check, Shield, Zap, Building2, Sparkles } from "lucide-react";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 
 export default function PricingPage() {
   const plans = [
@@ -79,8 +76,6 @@ export default function PricingPage() {
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col justify-between selection:bg-blue-500/30">
-      <Navbar />
-
       <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center space-y-4 max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold uppercase tracking-wider">
@@ -151,8 +146,6 @@ export default function PricingPage() {
           ))}
         </div>
       </main>
-
-      <Footer />
     </div>
   );
 }

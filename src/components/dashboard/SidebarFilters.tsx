@@ -9,7 +9,6 @@ export interface SidebarFiltersProps {
   setMinConfidence: (score: number) => void;
   selectedLocTypes: string[];
   setSelectedLocTypes: (types: string[]) => void;
-  detectedPlatform?: string;
 }
 
 export default function SidebarFilters({
@@ -59,7 +58,7 @@ export default function SidebarFilters({
     <aside className="w-full lg:w-72 border-r border-slate-900 bg-slate-900/10 p-5 space-y-6 flex-shrink-0">
       <div className="flex items-center justify-between border-b border-slate-950 pb-4">
         <div className="flex items-center gap-2">
-          <SlidersHorizontal className="h-4.5 w-4.5 text-blue-500" />
+          <SlidersHorizontal className="h-4 w-4 text-blue-500" />
           <h2 className="font-bold text-slate-200 text-sm tracking-wide">Filters & Parameters</h2>
         </div>
         {(selectedPlatforms.length > 0 || selectedLocTypes.length > 0 || minConfidence !== 0.2) && (

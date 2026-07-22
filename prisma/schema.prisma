@@ -1,5 +1,5 @@
 datasource db {
-  provider = "postgresql"
+  provider = "sqlite"
   url      = env("DATABASE_URL")
 }
 
@@ -72,6 +72,7 @@ model Entity {
 
   @@index([jobId])
   @@index([entityType])
+  @@index([name])
 }
 
 model Location {

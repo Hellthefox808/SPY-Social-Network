@@ -4,6 +4,7 @@ import { fetchWithRetry } from "../utils/fetchWithRetry";
 
 export class WebsiteAdapter implements ISocialAdapter {
   platform = "website";
+  provider = "web-scraper" as const;
 
   supports(url: string): boolean {
     // Falls back to true for any URL since it is the generic web adapter
@@ -114,6 +115,7 @@ export class WebsiteAdapter implements ISocialAdapter {
 
       return {
         platform: "website",
+        provider: this.provider,
         profile,
         connections,
         locations,

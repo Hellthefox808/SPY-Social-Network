@@ -4,7 +4,24 @@ import { geoService } from "@/lib/services/GeoService";
 import { getConfidenceScore } from "@/lib/geo/scorer";
 import { logger } from "@/lib/logger";
 
+interface SourceFetchResult {
+  provider: string;
+  status: "pending" | "in_progress" | "completed" | "failed";
+  durationMs?: number;
+  errorMessage?: string;
+  recordsCount?: number;
+}
+
 export class JobService {
+  private readonly MAX_RETRIES = 3;
+
+  /**
+   * Calculates exponential backoff delay: n^2 seconds (1s, 4s, 9s)
+   */
+  private getBackoffMs(attempt: number): number {
+    return Math.pow(attempt, 2) * 1000;
+  }
+
   /**
    * Creates a new analysis job record and triggers async processing.
    */
@@ -28,12 +45,16 @@ export class JobService {
 
   /**
    * Executes the full OSINT extraction pipeline for a given job.
+   * Includes retry with exponential backoff (3 attempts: 1s, 4s, 9s delays).
    */
   public async processJob(jobId: string, correlationId: string = "job-process"): Promise<void> {
     const startTime = Date.now();
     let fetchMs = 0;
     let geocodeMs = 0;
     let transformMs = 0;
+    let retryCount = 0;
+
+    const sourceResults: SourceFetchResult[] = [];
 
     try {
       // 1. Set job to RUNNING
@@ -44,21 +65,63 @@ export class JobService {
 
       logger.info(`Starting execution for job ${jobId}`, { platform: job.detectedPlatform }, correlationId);
 
-      // 2. Fetch platform data
+      // 2. Fetch platform data with retry + exponential backoff
       const fetchStart = Date.now();
       const adapter = getAdapterForUrl(job.normalizedUrl);
+
+      sourceResults.push({
+        provider: adapter.platform,
+        status: "in_progress",
+      });
+
       let data;
+      let lastAdapterError: unknown;
 
-      try {
-        data = await adapter.analyze(job.normalizedUrl);
-      } catch (adapterErr) {
-        logger.error(`Primary adapter ${adapter.platform} failed. Failing job.`, { jobId }, correlationId, adapterErr);
-        throw new Error(`Data extraction failed for ${job.normalizedUrl}`);
+      for (let attempt = 1; attempt <= this.MAX_RETRIES; attempt++) {
+        try {
+          data = await adapter.analyze(job.normalizedUrl);
+          lastAdapterError = undefined;
+          break; // Success, exit retry loop
+        } catch (adapterErr) {
+          lastAdapterError = adapterErr;
+          retryCount = attempt;
+          const retryDelay = this.getBackoffMs(attempt);
+          logger.warn(
+            `Adapter ${adapter.platform} attempt ${attempt}/${this.MAX_RETRIES} failed. Retrying in ${retryDelay}ms...`,
+            { jobId, attempt },
+            correlationId,
+            adapterErr
+          );
+
+          if (attempt < this.MAX_RETRIES) {
+            await new Promise((resolve) => setTimeout(resolve, retryDelay));
+          }
+        }
       }
-      fetchMs = Date.now() - fetchStart;
 
-      // 3. Geocode location items
+      if (!data) {
+        const errMsg = lastAdapterError instanceof Error ? lastAdapterError.message : "Unknown adapter error";
+        sourceResults[sourceResults.length - 1] = {
+          ...sourceResults[sourceResults.length - 1],
+          status: "failed",
+          errorMessage: errMsg,
+          durationMs: Date.now() - fetchStart,
+        };
+        throw new Error(`Data extraction failed for ${job.normalizedUrl} after ${retryCount} retries: ${errMsg}`);
+      }
+
+      fetchMs = Date.now() - fetchStart;
+      sourceResults[sourceResults.length - 1] = {
+        provider: adapter.platform,
+        status: "completed",
+        durationMs: fetchMs,
+        recordsCount: (data.connections?.length || 0) + (data.locations?.length || 0) + (data.evidence?.length || 0),
+      };
+
+      // 3. Geocode location items with per-location error isolation
       const geoStart = Date.now();
+      sourceResults.push({ provider: "geo-service", status: "in_progress" });
+
       const geocodedLocations = await Promise.all(
         data.locations.map(async (loc) => {
           let resolvedLat = loc.lat;
@@ -67,13 +130,21 @@ export class JobService {
           let country = loc.country;
           let state = loc.state;
 
+          // Only geocode if coordinates are missing (lat=0, lng=0) but we have text
           if (loc.lat === 0 && loc.lng === 0 && loc.label) {
-            const geoRes = await geoService.geocode(loc.label, correlationId);
-            resolvedLat = geoRes.lat;
-            resolvedLng = geoRes.lng;
-            city = geoRes.city || city;
-            country = geoRes.country || country;
-            state = geoRes.state || state;
+            try {
+              const geoRes = await geoService.geocode(loc.label, correlationId);
+              resolvedLat = geoRes.lat;
+              resolvedLng = geoRes.lng;
+              city = geoRes.city || city;
+              country = geoRes.country || country;
+              state = geoRes.state || state;
+            } catch (geoErr) {
+              // Isolate geocode failure — use placeholder coords instead of failing the entire job
+              logger.warn(`Geocode failed for "${loc.label}", using placeholder`, { jobId }, correlationId, geoErr);
+              resolvedLat = 0;
+              resolvedLng = 0;
+            }
           }
 
           const score = getConfidenceScore(loc.type);
@@ -93,9 +164,17 @@ export class JobService {
         })
       );
       geocodeMs = Date.now() - geoStart;
+      sourceResults[sourceResults.length - 1] = {
+        provider: "geo-service",
+        status: "completed",
+        durationMs: geocodeMs,
+        recordsCount: geocodedLocations.length,
+      };
 
       // 4. Persist data inside DB Transaction
       const txStart = Date.now();
+      sourceResults.push({ provider: "database-write", status: "in_progress" });
+
       let entitiesCount = 0;
       let locationsCount = 0;
       let edgesCount = 0;
@@ -166,30 +245,34 @@ export class JobService {
             });
             locationsCount++;
           } else if (conn.location) {
-            const geoRes = await geoService.geocode(conn.location, correlationId);
-            if (geoRes.lat !== 0 || geoRes.lng !== 0) {
-              await tx.location.create({
-                data: {
-                  jobId,
-                  entityId: ent.id,
-                  label: conn.location,
-                  city: geoRes.city || null,
-                  state: geoRes.state || null,
-                  country: geoRes.country || null,
-                  lat: geoRes.lat,
-                  lng: geoRes.lng,
-                  locationType: "inferred",
-                  confidence: conn.confidence * 0.8,
-                  sourceUrl: conn.sourceUrl,
-                  evidenceText: conn.evidence || `Geocoded connection: "${conn.location}"`,
-                },
-              });
-              locationsCount++;
+            try {
+              const geoRes = await geoService.geocode(conn.location, correlationId);
+              if (geoRes.lat !== 0 || geoRes.lng !== 0) {
+                await tx.location.create({
+                  data: {
+                    jobId,
+                    entityId: ent.id,
+                    label: conn.location,
+                    city: geoRes.city || null,
+                    state: geoRes.state || null,
+                    country: geoRes.country || null,
+                    lat: geoRes.lat,
+                    lng: geoRes.lng,
+                    locationType: "inferred",
+                    confidence: conn.confidence * 0.8,
+                    sourceUrl: conn.sourceUrl,
+                    evidenceText: conn.evidence || `Geocoded connection: "${conn.location}"`,
+                  },
+                });
+                locationsCount++;
+              }
+            } catch (geoErr) {
+              logger.warn(`Connection geocode failed for "${conn.location}", skipping location`, { jobId }, correlationId, geoErr);
             }
           }
         }
 
-        // Locations
+        // Primary Locations
         for (const loc of geocodedLocations) {
           await tx.location.create({
             data: {
@@ -244,11 +327,18 @@ export class JobService {
           });
         }
       });
+
       transformMs = Date.now() - txStart;
+      sourceResults[sourceResults.length - 1] = {
+        provider: "database-write",
+        status: "completed",
+        durationMs: transformMs,
+        recordsCount: entitiesCount + locationsCount + edgesCount,
+      };
 
       const totalMs = Date.now() - startTime;
 
-      // Update job to COMPLETED & record JobMetrics
+      // Update job to COMPLETED & record JobMetrics (with source attribution & retry count)
       await db.analysisJob.update({
         where: { id: jobId },
         data: {
@@ -264,17 +354,18 @@ export class JobService {
           geocodeMs,
           transformMs,
           totalMs,
+          retryCount,
           entitiesCount,
           locationsCount,
           edgesCount,
         },
       });
 
-      logger.info(`Job ${jobId} completed successfully in ${totalMs}ms`, { totalMs, fetchMs, geocodeMs, transformMs }, correlationId);
+      logger.info(`Job ${jobId} completed successfully in ${totalMs}ms (${retryCount} retries)`, { totalMs, fetchMs, geocodeMs, transformMs, retryCount }, correlationId);
 
     } catch (err: unknown) {
       const message = err instanceof Error ? err.message : "Unknown error occurred.";
-      logger.error(`Job ${jobId} failed`, { jobId }, correlationId, err);
+      logger.error(`Job ${jobId} failed after ${retryCount} retries`, { jobId, retryCount }, correlationId, err);
 
       await db.analysisJob.update({
         where: { id: jobId },
@@ -284,10 +375,26 @@ export class JobService {
           completedAt: new Date(),
         },
       });
+
+      // Even on failure, record metrics so we can track error rates
+      try {
+        await db.jobMetrics.create({
+          data: {
+            jobId,
+            fetchMs,
+            geocodeMs,
+            transformMs,
+            totalMs: Date.now() - startTime,
+            retryCount,
+          },
+        });
+      } catch {
+        // Ignore metrics write error — job already marked as failed
+      }
     }
   }
 
-  private normalizeUrl(url: string): string {
+  public normalizeUrl(url: string): string {
     let clean = url.trim();
     if (!/^https?:\/\//i.test(clean)) {
       clean = "https://" + clean;

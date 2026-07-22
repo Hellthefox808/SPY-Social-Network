@@ -4,6 +4,8 @@ import { jobService } from "@/lib/services/JobService";
 import { db } from "@/lib/db";
 import { checkRateLimit } from "@/lib/rateLimiter";
 import { logger } from "@/lib/logger";
+import { getAdapterForUrl } from "@/lib/adapters/registry";
+import { getSession } from "@/lib/session";
 
 const analyzeSchema = z.object({
   url: z.string().min(1, "URL is required"),
@@ -33,7 +35,33 @@ export async function POST(req: NextRequest) {
       );
     }
 
+    const normalizedUrl = jobService.normalizeUrl(parsed.data.url);
+    const adapter = getAdapterForUrl(normalizedUrl);
+
     const jobId = await jobService.createJob(parsed.data.url, correlationId);
+
+    // ── Usage Tracking: log to AuditLog ──────────────────────────────
+    try {
+      const session = await getSession();
+      const userId = session?.userId ? String(session.userId) : null;
+      await db.auditLog.create({
+        data: {
+          userId,
+          action: "ANALYZE_URL",
+          resource: parsed.data.url,
+          details: JSON.stringify({
+            platform: adapter.platform,
+            provider: adapter.provider,
+            jobId,
+            normalizedUrl,
+          }),
+          ipAddress: clientIp,
+        },
+      });
+    } catch (auditErr) {
+      // Audit failure must never break the main flow
+      logger.warn("Failed to write audit log for analyze", {}, correlationId, auditErr);
+    }
 
     after(() => {
       jobService.processJob(jobId, correlationId).catch((err) => {
@@ -41,10 +69,16 @@ export async function POST(req: NextRequest) {
       });
     });
 
+    // Return source attribution even during PENDING state so the dashboard shows the provider
     return NextResponse.json(
       {
         success: true,
-        data: { jobId, status: "PENDING" },
+        data: {
+          jobId,
+          status: "PENDING",
+          sourceProvider: adapter.provider,
+          detectedPlatform: adapter.platform,
+        },
         meta: { correlationId },
       },
       { status: 202, headers: { "X-Correlation-ID": correlationId } }
@@ -79,7 +113,9 @@ export async function GET(req: NextRequest) {
         entities: true,
         locations: true,
         edges: true,
-        evidenceItems: true,
+        evidenceItems: {
+          orderBy: { createdAt: "desc" },
+        },
         metrics: true,
       },
     });
@@ -91,8 +127,26 @@ export async function GET(req: NextRequest) {
       );
     }
 
-    // Return direct job payload for backward compatibility with frontend DashboardPage
-    return NextResponse.json(job, {
+    // Build source attribution metadata for the frontend
+    const sourceMetadata = {
+      provider: job.metrics?.retryCount ? (job.metrics.retryCount > 0 ? "recovered-via-retry" : "direct-fetch") : "pending",
+      retryCount: job.metrics?.retryCount || 0,
+      fetchLatencyMs: job.metrics?.fetchMs || null,
+      geocodeLatencyMs: job.metrics?.geocodeMs || null,
+      databaseLatencyMs: job.metrics?.transformMs || null,
+      totalLatencyMs: job.metrics?.totalMs || null,
+      entitiesCount: job.metrics?.entitiesCount || 0,
+      locationsCount: job.metrics?.locationsCount || 0,
+      edgesCount: job.metrics?.edgesCount || 0,
+    };
+
+    // Enrich response with source attribution (backward compatible)
+    const enrichedJob = {
+      ...job,
+      _source: sourceMetadata,
+    };
+
+    return NextResponse.json(enrichedJob, {
       headers: { "X-Correlation-ID": correlationId, "Cache-Control": "no-store" },
     });
   } catch (err: unknown) {
