@@ -56,7 +56,8 @@ next-env.d.ts
 *.sw?
 
 # AI & Agents
-.agents/
+.agents/tasks-queue.json
+.jolli/
 .gemini/
 .claude/
 .cursor/

@@ -242,6 +242,7 @@ export default function DashboardPage() {
         <div className="bg-slate-900/60 border border-slate-900 rounded-2xl p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div className="flex items-center gap-4">
             {profile.avatarUrl ? (
+              /* eslint-disable-next-line @next/next/no-img-element */
               <img
                 src={profile.avatarUrl}
                 alt={profile.displayName || "Avatar"}

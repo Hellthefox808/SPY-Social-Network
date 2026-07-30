@@ -3,36 +3,56 @@
 import React, { HTMLAttributes } from "react";
 import { clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
+import { motion, HTMLMotionProps, Variants } from "framer-motion";
 
-export interface RevealProps extends HTMLAttributes<HTMLDivElement> {
-  delay?: number | string;
-  duration?: number | string;
-  animation?: "fadeSlideUp" | "fadeIn" | "zoomIn";
-  as?: React.ElementType;
+export interface RevealProps extends Omit<HTMLAttributes<HTMLDivElement>, keyof HTMLMotionProps<"div">>, HTMLMotionProps<"div"> {
+  delay?: number;
+  duration?: number;
+  direction?: "up" | "down" | "left" | "right" | "none";
+  children?: React.ReactNode;
 }
 
 export function Reveal({
-  delay = "0.2s",
-  duration = "0.8s",
-  animation = "fadeSlideUp",
-  as: Component = "div",
+  delay = 0,
+  duration = 0.5,
+  direction = "up",
   className,
   children,
-  style,
   ...props
 }: RevealProps) {
-  const formattedDelay = typeof delay === "number" ? `${delay}s` : delay;
-  const formattedDuration = typeof duration === "number" ? `${duration}s` : duration;
+  const getVariants = (): Variants => {
+    let x = 0;
+    let y = 0;
+    if (direction === "up") y = 24;
+    if (direction === "down") y = -24;
+    if (direction === "left") x = 24;
+    if (direction === "right") x = -24;
 
-  const animationClass = `animate-[${animation}_${formattedDuration}_ease_${formattedDelay}_both]`;
+    return {
+      hidden: { opacity: 0, x, y },
+      visible: {
+        opacity: 1,
+        x: 0,
+        y: 0,
+        transition: {
+          duration,
+          delay,
+          ease: "easeOut",
+        },
+      },
+    };
+  };
 
   return (
-    <Component
-      className={twMerge(clsx(animationClass, className))}
-      style={style}
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.15 }}
+      variants={getVariants()}
+      className={twMerge(clsx(className))}
       {...props}
     >
       {children}
-    </Component>
+    </motion.div>
   );
 }

@@ -3,28 +3,30 @@
 import React, { ButtonHTMLAttributes, forwardRef } from "react";
 import { clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
+import { motion, HTMLMotionProps } from "framer-motion";
 
-export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, keyof HTMLMotionProps<"button">>, HTMLMotionProps<"button"> {
   variant?: "primary" | "secondary" | "outline" | "white" | "pill" | "ghost";
   size?: "sm" | "md" | "lg";
   icon?: React.ReactNode;
   iconPosition?: "left" | "right";
   loading?: boolean;
+  children?: React.ReactNode;
 }
 
 const variantStyles: Record<NonNullable<ButtonProps["variant"]>, string> = {
-  primary: "bg-blue-600 hover:bg-blue-500 text-white shadow-lg shadow-blue-500/20",
-  secondary: "bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700",
-  outline: "border border-slate-700 hover:border-slate-500 text-slate-300 hover:text-white bg-transparent",
-  white: "bg-white text-black font-medium hover:scale-105 transition-transform",
-  pill: "rounded-full bg-white text-black font-medium hover:scale-105 transition-transform",
-  ghost: "text-slate-400 hover:text-white bg-transparent hover:bg-slate-900/50",
+  primary: "bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 border border-blue-400/20",
+  secondary: "bg-slate-900/80 hover:bg-slate-800/90 text-slate-200 border border-slate-700/80 backdrop-blur-md shadow-md",
+  outline: "border border-slate-700/80 hover:border-blue-500/60 text-slate-300 hover:text-white bg-slate-950/40 hover:bg-blue-950/20 backdrop-blur-sm",
+  white: "bg-white text-slate-950 font-semibold hover:bg-slate-100 shadow-lg shadow-white/10",
+  pill: "rounded-full bg-white text-slate-950 font-semibold hover:bg-slate-100 shadow-lg shadow-white/10",
+  ghost: "text-slate-400 hover:text-white bg-transparent hover:bg-slate-900/60 backdrop-blur-sm",
 };
 
 const sizeStyles: Record<NonNullable<ButtonProps["size"]>, string> = {
   sm: "px-3 py-1.5 text-xs rounded-md gap-1.5",
-  md: "px-5 py-2 text-sm rounded-lg gap-2",
-  lg: "px-6 py-3 text-base rounded-xl gap-2.5",
+  md: "px-5 py-2.5 text-sm rounded-xl gap-2",
+  lg: "px-6 py-3.5 text-base rounded-2xl gap-3 font-semibold",
 };
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
@@ -43,11 +45,14 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     ref
   ) => {
     const baseClasses =
-      "inline-flex items-center justify-center font-medium transition-all duration-200 active:scale-95 disabled:opacity-50 disabled:pointer-events-none disabled:active:scale-100 select-none";
+      "inline-flex items-center justify-center font-medium transition-all duration-200 disabled:opacity-50 disabled:pointer-events-none select-none relative overflow-hidden group";
 
     return (
-      <button
+      <motion.button
         ref={ref}
+        whileHover={{ scale: disabled || loading ? 1 : 1.02 }}
+        whileTap={{ scale: disabled || loading ? 1 : 0.97 }}
+        transition={{ type: "spring", stiffness: 400, damping: 25 }}
         disabled={disabled || loading}
         className={twMerge(
           clsx(
@@ -81,10 +86,14 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             />
           </svg>
         )}
-        {!loading && icon && iconPosition === "left" && icon}
-        <span>{children}</span>
-        {!loading && icon && iconPosition === "right" && icon}
-      </button>
+        {!loading && icon && iconPosition === "left" && (
+          <span className="transition-transform duration-200 group-hover:-translate-x-0.5">{icon}</span>
+        )}
+        <span className="relative z-10">{children}</span>
+        {!loading && icon && iconPosition === "right" && (
+          <span className="transition-transform duration-200 group-hover:translate-x-0.5">{icon}</span>
+        )}
+      </motion.button>
     );
   }
 );

@@ -317,9 +317,14 @@ export default function UnderwaterCanvas() {
       }
     };
 
+    let lastFrameTime = 0;
+    const targetFpsMs = 1000 / 60; // 60 FPS cap
+
     // Render loop
-    const render = () => {
-      ctx.clearRect(0, 0, width, height);
+    const render = (time: number) => {
+      if (time - lastFrameTime >= targetFpsMs) {
+        lastFrameTime = time;
+        ctx.clearRect(0, 0, width, height);
 
       // 1. Deep Ocean Gradient Background
       const bgGrad = ctx.createLinearGradient(0, 0, 0, height);
@@ -422,6 +427,7 @@ export default function UnderwaterCanvas() {
       vignette.addColorStop(1, "rgba(1, 7, 22, 0.75)");
       ctx.fillStyle = vignette;
       ctx.fillRect(0, 0, width, height);
+      }
 
       if (document.visibilityState === "visible") {
         animId = requestAnimationFrame(render);
@@ -431,12 +437,12 @@ export default function UnderwaterCanvas() {
     const handleVisibilityChange = () => {
       if (document.visibilityState === "visible") {
         cancelAnimationFrame(animId);
-        render();
+        animId = requestAnimationFrame(render);
       }
     };
     document.addEventListener("visibilitychange", handleVisibilityChange);
 
-    render();
+    animId = requestAnimationFrame(render);
 
     return () => {
       window.removeEventListener("resize", handleResize);
